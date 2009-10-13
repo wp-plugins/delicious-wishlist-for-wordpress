@@ -38,6 +38,9 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 
 == Changelog ==
 
+= 0.3 =
+* Equalized the plugin name
+
 = 0.2 =
 * Changed the plugin directory name to match the SVN name.
 
