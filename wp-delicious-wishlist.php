@@ -1,11 +1,11 @@
 <?php
 /*
 	Plugin Name: Delicious Wishlist for WordPress
-	Description:  Publish a wishlist using your Delicious tag bookmarks 
+	Description:  Publish a wishlist using your Delicious bookmarks 
 	Plugin URI: http://www.aldolat.it/2009/wordpress/delicious-wishlist-for-wordpress
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 0.1
+	Version: 0.3
 */
 
 /*
@@ -29,7 +29,7 @@
 
 // Make plugin available for i18n
 // Translations must be archived in the /languages/ directory
-load_plugin_textdomain('wp-delicious-wishlist', false, 'wp-delicious-wishlist/languages');
+load_plugin_textdomain('wp-delicious-wishlist', false, 'delicious-wishlist-for-wordpress/languages');
 
 // Start the main function
 function wp_delicious_wishlist($the_content) {
@@ -185,7 +185,7 @@ add_shortcode('my-delicious-wishlist', 'wp_delicious_wishlist');
 
 add_action('admin_menu', 'wdw_menu');
 function wdw_menu() {
-	add_options_page(__('WordPress Delicious Wishlist Plugin Options', 'wp-delicious-wishlist'), __('WP Delicious Wishlist', 'wp-delicious-wishlist'), 10, __FILE__, 'wdw_options_page');
+	add_options_page(__('Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist'), __('Delicious Wishlist', 'wp-delicious-wishlist'), 10, __FILE__, 'wdw_options_page');
 }
 
 // Load the options page
@@ -199,7 +199,7 @@ function wp_delicious_wishlist_stylesheets() {
 	if(file_exists(TEMPLATEPATH.'/wdw.css')) {
 		wp_enqueue_style('wp-delicious-wishlist', get_stylesheet_directory_uri().'/wdw.css', false, false, 'all');
 	} else {
-		wp_enqueue_style('wp-delicious-wishlist', plugins_url('wp-delicious-wishlist/wdw.css'), false, false, 'all');
+		wp_enqueue_style('wp-delicious-wishlist', plugins_url('delicious-wishlist-for-wordpress/wdw.css'), false, false, 'all');
 	}
 }
 

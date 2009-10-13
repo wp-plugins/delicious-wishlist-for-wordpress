@@ -1,10 +1,10 @@
-=== WP Delicious Wishlist ===
+=== Delicious Wishlist for WordPress ===
 Contributors: Aldo Latino
 Donate link: http://www.aldolat.it/info/
 Tags: delicious, wishlist, bookmarks
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable tag: 0.1
+Stable tag: 0.3
 
 Adds a Wishlist page to your WordPress blog using your Delicious Bookmarks.
 
@@ -16,7 +16,7 @@ This plugin allows you to publish in your blog a wishlist using your Delicious b
 
 This section describes how to install the plugin and get it working.
 
-1. Upload  the `wp-delicious-wishlist` directory to the `/wp-content/plugins/` directory
+1. Upload  the `delicious-wishlist-for-wordpress` directory to the `/wp-content/plugins/` directory
 1. Activate the plugin through the Plugins menu in WordPress
 1. Fill in all the fields in the options page of the plugin
 1. Create a new page
@@ -37,6 +37,9 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 2. The rendered wishlist page
 
 == Changelog ==
+
+= 0.2 =
+* Changed the plugin directory name to match the SVN name.
 
 = 0.1 =
 * First release of the plugin.

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Delicious Wishlist\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-12 14:13+0100\n"
+"POT-Creation-Date: 2009-10-13 15:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Aldo Latino <aldolat@gmail.com>\n"
 "Language-Team: Aldo Latino <aldolat@gmail.com>\n"
@@ -15,8 +15,8 @@ msgstr ""
 
 #: .././wdw-options.php:2
 #: .././wp-delicious-wishlist.php:188
-msgid "WordPress Delicious Wishlist Plugin Options"
-msgstr "Opzioni per il plugin WordPress Delicious Wishlist"
+msgid "Delicious Wishlist for WordPress Options"
+msgstr "Opzioni per Delicious Wishlist for WordPress"
 
 #: .././wdw-options.php:4
 msgid "Settings"
@@ -172,8 +172,8 @@ msgid "I like"
 msgstr "Mi piace"
 
 #: .././wp-delicious-wishlist.php:188
-msgid "WP Delicious Wishlist"
-msgstr "WP Delicious Wishlist"
+msgid "Delicious Wishlist"
+msgstr "Delicious Wishlist"
 
 #~ msgid "Informations"
 #~ msgstr "Informazioni"
