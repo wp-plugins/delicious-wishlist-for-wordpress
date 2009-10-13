@@ -93,7 +93,7 @@
 					<select name="wdw_delicious_icons" >
 						<?php $my_wdw_style = get_option('wdw_delicious_icons'); ?>
 						<option <?php selected('stars', $my_wdw_style); ?> value="stars"><?php _e('Stars', 'wp-delicious-wishlist'); ?></option>
-						<option <?php selected('faces', $my_wdw_style); ?>value="faces"><?php _e('Faces', 'wp-delicious-wishlist'); ?></option>
+						<option <?php selected('faces', $my_wdw_style); ?> value="faces"><?php _e('Faces', 'wp-delicious-wishlist'); ?></option>
 					</select>
 				</td>
 			</tr>
