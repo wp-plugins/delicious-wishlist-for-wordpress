@@ -29,7 +29,7 @@
 
 // Make plugin available for i18n
 // Translations must be archived in the /languages/ directory
-load_plugin_textdomain('wp-delicious-wishlist', false, 'wp-delicious-wishlist/languages');
+load_plugin_textdomain('wp-delicious-wishlist', false, 'delicious-wishlist-for-wordpress/languages');
 
 // Start the main function
 function wp_delicious_wishlist($the_content) {
@@ -199,7 +199,7 @@ function wp_delicious_wishlist_stylesheets() {
 	if(file_exists(TEMPLATEPATH.'/wdw.css')) {
 		wp_enqueue_style('wp-delicious-wishlist', get_stylesheet_directory_uri().'/wdw.css', false, false, 'all');
 	} else {
-		wp_enqueue_style('wp-delicious-wishlist', plugins_url('wp-delicious-wishlist/wdw.css'), false, false, 'all');
+		wp_enqueue_style('wp-delicious-wishlist', plugins_url('delicious-wishlist-for-wordpress/wdw.css'), false, false, 'all');
 	}
 }
 
