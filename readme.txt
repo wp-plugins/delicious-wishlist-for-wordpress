@@ -4,7 +4,7 @@ Donate link: http://www.aldolat.it/info/
 Tags: delicious, wishlist, bookmarks
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable tag: 0.2
+Stable tag: 0.3
 
 Adds a Wishlist page to your WordPress blog using your Delicious Bookmarks.
 
