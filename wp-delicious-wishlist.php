@@ -185,7 +185,7 @@ add_shortcode('my-delicious-wishlist', 'wp_delicious_wishlist');
 
 add_action('admin_menu', 'wdw_menu');
 function wdw_menu() {
-	add_options_page(__('WordPress Delicious Wishlist Plugin Options', 'wp-delicious-wishlist'), __('WP Delicious Wishlist', 'wp-delicious-wishlist'), 10, __FILE__, 'wdw_options_page');
+	add_options_page(__('Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist'), __('Delicious Wishlist', 'wp-delicious-wishlist'), 10, __FILE__, 'wdw_options_page');
 }
 
 // Load the options page

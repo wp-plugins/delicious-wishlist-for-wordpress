@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h2><?php _e('WordPress Delicious Wishlist Plugin Options', 'wp-delicious-wishlist'); ?></h2>
+	<h2><?php _e('Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist'); ?></h2>
 
 	<h3><?php _e('Settings', 'wp-delicious-wishlist'); ?></h3>
 
