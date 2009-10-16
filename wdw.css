@@ -91,3 +91,7 @@ ul#wishlist-low  li.low-stars:last-child,
 ul#wishlist-low li.low-faces:last-child {
 	margin-bottom: 0;
 }
+
+.wishlist-timestamp abbr {
+	cursor: help;
+}
