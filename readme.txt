@@ -38,6 +38,9 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 
 == Changelog ==
 
+= 0.4 =
+* Added style for abbr
+
 = 0.3 =
 * Equalized the plugin name
 
