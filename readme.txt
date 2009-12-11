@@ -3,7 +3,7 @@ Contributors: Aldo Latino
 Donate link: http://www.aldolat.it/info/
 Tags: delicious, wishlist, bookmarks
 Requires at least: 2.8
-Tested up to: 2.9-beta-1
+Tested up to: 2.9
 Stable tag: 0.3
 
 Adds a Wishlist page to your WordPress blog using your Delicious Bookmarks.
