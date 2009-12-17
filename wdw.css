@@ -1,5 +1,5 @@
 /*
-	WordPress 2.8 Plugin: WordPress Delicious Wishlist 0.1
+	WordPress 2.8 Plugin: Delicious Wishlist for WordPress 0.3.1
 
 	Stylesheet file wdw.css
 
@@ -90,4 +90,8 @@ ul#wishlist-medium li.medium-faces:last-child,
 ul#wishlist-low  li.low-stars:last-child,
 ul#wishlist-low li.low-faces:last-child {
 	margin-bottom: 0;
+}
+
+.wishlist-timestamp abbr {
+	cursor: help;
 }
