@@ -5,7 +5,7 @@
 	Plugin URI: http://www.aldolat.it/2009/wordpress/delicious-wishlist-for-wordpress
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 0.3
+	Version: 0.3.1
 */
 
 /*
