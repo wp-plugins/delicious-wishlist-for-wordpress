@@ -1,35 +1,34 @@
 <?php
 /*
 	Plugin Name: Delicious Wishlist for WordPress
-	Description:  Publish a wishlist using your Delicious tag bookmarks 
-	Plugin URI: http://www.aldolat.it/2009/wordpress/delicious-wishlist-for-wordpress
+	Description:  Publish a wishlist using your Delicious bookmarks 
+	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 0.1
+	Version: 0.3.2
 */
 
 /*
-	Copyright 2009  Aldo Latino  (email : aldolat@gmail.com)
+	Copyright (C) 2009, 2010  Aldo Latino  (email : aldolat@gmail.com)
 
-	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
 
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 
 // Make plugin available for i18n
 // Translations must be archived in the /languages/ directory
-load_plugin_textdomain('wp-delicious-wishlist', false, 'wp-delicious-wishlist/languages');
+load_plugin_textdomain('wp-delicious-wishlist', false, 'delicious-wishlist-for-wordpress/languages');
 
 // Start the main function
 function wp_delicious_wishlist($the_content) {
@@ -185,7 +184,7 @@ add_shortcode('my-delicious-wishlist', 'wp_delicious_wishlist');
 
 add_action('admin_menu', 'wdw_menu');
 function wdw_menu() {
-	add_options_page(__('WordPress Delicious Wishlist Plugin Options', 'wp-delicious-wishlist'), __('WP Delicious Wishlist', 'wp-delicious-wishlist'), 10, __FILE__, 'wdw_options_page');
+	add_options_page(__('Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist'), __('Delicious Wishlist', 'wp-delicious-wishlist'), 10, __FILE__, 'wdw_options_page');
 }
 
 // Load the options page
@@ -199,7 +198,7 @@ function wp_delicious_wishlist_stylesheets() {
 	if(file_exists(TEMPLATEPATH.'/wdw.css')) {
 		wp_enqueue_style('wp-delicious-wishlist', get_stylesheet_directory_uri().'/wdw.css', false, false, 'all');
 	} else {
-		wp_enqueue_style('wp-delicious-wishlist', plugins_url('wp-delicious-wishlist/wdw.css'), false, false, 'all');
+		wp_enqueue_style('wp-delicious-wishlist', plugins_url('delicious-wishlist-for-wordpress/wdw.css'), false, false, 'all');
 	}
 }
 
