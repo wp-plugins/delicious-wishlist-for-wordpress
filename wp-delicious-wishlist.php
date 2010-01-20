@@ -5,7 +5,7 @@
 	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 0.3.3
+	Version: 0.3.4
 */
 
 /*
@@ -72,7 +72,7 @@ function wp_delicious_wishlist($the_content) {
 			return __('There was a problem fetching your feed.', 'wp-delicious-wishlist');
 		} else { 
 
-			$num_items = $rss->get_item_quantity($maxitems); 
+			$num_items = $wdw_rss->get_item_quantity($maxitems); 
 
 			// Build an array of items
 			$wdw_items = $wdw_rss->get_items(0, $num_items);
@@ -116,7 +116,7 @@ function wp_delicious_wishlist($the_content) {
 		if(is_wp_error($wdw_rss)) { // Catch the error
 			return __('There was a problem fetching your feed.', 'wp-delicious-wishlist');
 		} else {
-			$num_items = $rss->get_item_quantity($maxitems); 
+			$num_items = $wdw_rss->get_item_quantity($maxitems); 
 			$wdw_items = $wdw_rss->get_items(0, $num_items);
 
 			$mywishlist .= '<h3 id="medium">';
@@ -154,7 +154,7 @@ function wp_delicious_wishlist($the_content) {
 		if(is_wp_error($wdw_rss)) { // Catch the error
 			return __('There was a problem fetching your feed.', 'wp-delicious-wishlist');
 		} else {
-			$num_items = $rss->get_item_quantity($maxitems); 
+			$num_items = $wdw_rss->get_item_quantity($maxitems); 
 			$wdw_items = $wdw_rss->get_items(0, $num_items);
 
 			$mywishlist .= '<h3 id="low">';
