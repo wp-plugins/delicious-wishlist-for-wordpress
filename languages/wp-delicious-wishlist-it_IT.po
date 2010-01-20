@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Delicious Wishlist\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-12 14:13+0100\n"
+"POT-Creation-Date: 2010-01-16 09:26+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Aldo Latino <aldolat@gmail.com>\n"
 "Language-Team: Aldo Latino <aldolat@gmail.com>\n"
@@ -13,10 +13,61 @@ msgstr ""
 "X-Poedit-Country: ITALY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
+#: .././wp-delicious-wishlist.php:59
+msgid "You have not properly configured the plugin.<br />Please, setup it in the plugin panel admin, filling in all the required fields."
+msgstr "Non hai configurato correttamente il plugin.<br />Impostalo nel pannello di amministrazione del plugin, compilando tutti i campi richiesti."
+
+#: .././wp-delicious-wishlist.php:72
+#: .././wp-delicious-wishlist.php:117
+#: .././wp-delicious-wishlist.php:155
+msgid "There was a problem fetching your feed."
+msgstr "Impossibile recuperare il feed."
+
+#: .././wp-delicious-wishlist.php:84
+msgid "I need"
+msgstr "Mi serve"
+
+#: .././wp-delicious-wishlist.php:90
+#: .././wp-delicious-wishlist.php:131
+#: .././wp-delicious-wishlist.php:169
+msgid "Nothing in this moment"
+msgstr "Niente in questo momento"
+
+#: .././wp-delicious-wishlist.php:103
+#: .././wp-delicious-wishlist.php:141
+#: .././wp-delicious-wishlist.php:179
+#, php-format
+msgid "%s ago"
+msgstr "%s fa"
+
+#: .././wp-delicious-wishlist.php:105
+#: .././wp-delicious-wishlist.php:143
+#: .././wp-delicious-wishlist.php:181
+msgid "m/d/Y"
+msgstr "d/m/Y"
+
+#: .././wp-delicious-wishlist.php:106
+#: .././wp-delicious-wishlist.php:144
+#: .././wp-delicious-wishlist.php:182
+msgid "m/d/Y H:i:s"
+msgstr "d/m/Y H:i:s"
+
+#: .././wp-delicious-wishlist.php:126
+msgid "I'd like"
+msgstr "Mi piacerebbe"
+
+#: .././wp-delicious-wishlist.php:164
+msgid "I like"
+msgstr "Mi piace"
+
+#: .././wp-delicious-wishlist.php:200
 #: .././wdw-options.php:2
-#: .././wp-delicious-wishlist.php:188
-msgid "WordPress Delicious Wishlist Plugin Options"
-msgstr "Opzioni per il plugin WordPress Delicious Wishlist"
+msgid "Delicious Wishlist for WordPress Options"
+msgstr "Opzioni per Delicious Wishlist for WordPress"
+
+#: .././wp-delicious-wishlist.php:200
+msgid "Delicious Wishlist"
+msgstr "Delicious Wishlist"
 
 #: .././wdw-options.php:4
 msgid "Settings"
@@ -129,51 +180,6 @@ msgstr "e a"
 #: .././wdw-options.php:157
 msgid "for their great idea behind this work."
 msgstr "per la loro grande idea dietro questo lavoro."
-
-#: .././wp-delicious-wishlist.php:60
-msgid "You have not properly configured the plugin.<br />Please, setup it in the plugin panel admin, filling in all the required fields."
-msgstr "Non hai configurato correttamente il plugin.<br />Impostalo nel pannello di amministrazione del plugin, compilando tutti i campi richiesti."
-
-#: .././wp-delicious-wishlist.php:83
-msgid "I need"
-msgstr "Mi serve"
-
-#: .././wp-delicious-wishlist.php:89
-#: .././wp-delicious-wishlist.php:125
-#: .././wp-delicious-wishlist.php:158
-msgid "Nothing in this moment"
-msgstr "Niente in questo momento"
-
-#: .././wp-delicious-wishlist.php:102
-#: .././wp-delicious-wishlist.php:135
-#: .././wp-delicious-wishlist.php:168
-#, php-format
-msgid "%s ago"
-msgstr "%s fa"
-
-#: .././wp-delicious-wishlist.php:104
-#: .././wp-delicious-wishlist.php:137
-#: .././wp-delicious-wishlist.php:170
-msgid "m/d/Y"
-msgstr "d/m/Y"
-
-#: .././wp-delicious-wishlist.php:105
-#: .././wp-delicious-wishlist.php:138
-#: .././wp-delicious-wishlist.php:171
-msgid "m/d/Y H:i:s"
-msgstr "d/m/Y H:i:s"
-
-#: .././wp-delicious-wishlist.php:120
-msgid "I'd like"
-msgstr "Mi piacerebbe"
-
-#: .././wp-delicious-wishlist.php:153
-msgid "I like"
-msgstr "Mi piace"
-
-#: .././wp-delicious-wishlist.php:188
-msgid "WP Delicious Wishlist"
-msgstr "WP Delicious Wishlist"
 
 #~ msgid "Informations"
 #~ msgstr "Informazioni"
