@@ -4,7 +4,7 @@ Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlis
 Tags: delicious, wishlist, bookmarks
 Requires at least: 2.8
 Tested up to: 2.9.1
-Stable tag: 0.3.4
+Stable tag: 0.3.5
 
 Adds a Wishlist page to your WordPress blog using your Delicious Bookmarks.
 
@@ -37,6 +37,16 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 2. The rendered wishlist page
 
 == Changelog ==
+
+= 0.3.5 =
+* Removed unused variable
+* Removed redundant conditions
+* Better formatting of warning
+* Added CSS style for warning
+* i18n: added name of day of week
+* l10n: updated Italian translation
+* Cleaning up of code
+* Added GPL License text
 
 = 0.3.4 =
 * Fix: call to a wrong variable

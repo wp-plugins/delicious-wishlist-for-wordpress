@@ -5,7 +5,7 @@
 	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 0.3.4
+	Version: 0.3.5
 */
 
 /*
@@ -28,10 +28,19 @@
 
 // Make plugin available for i18n
 // Translations must be archived in the /languages/ directory
+setlocale(LC_ALL, get_locale());
 load_plugin_textdomain('wp-delicious-wishlist', false, 'delicious-wishlist-for-wordpress/languages');
 
+/*
+ * TODO : Add widget to sidebar
+ * 
+ */
+
+// Add the shortcode
+add_shortcode('my-delicious-wishlist', 'wp_delicious_wishlist');
+
 // Start the main function
-function wp_delicious_wishlist($the_content) {
+function wp_delicious_wishlist() {
 
 	include_once(ABSPATH . WPINC . '/feed.php');
 
@@ -53,22 +62,24 @@ function wp_delicious_wishlist($the_content) {
 	}
 
 	// check if fields' values are blank
-	if ($my_nickname == "" || $my_tag_wishlist == "" || $my_tag_high =="" || $my_tag_medium == "" || $my_tag_low == "") {
+	if ( empty($my_nickname) || empty($my_tag_wishlist) || empty($my_tag_high) || empty($my_tag_medium) || empty($my_tag_low) ) {
 
 		// if blank, print this
-		_e('You have not properly configured the plugin.<br />Please, setup it in the plugin panel admin, filling in all the required fields.', 'wp-delicious-wishlist');
+		$mywishlist = '<p class="wdw_warning">'.
+					  __('You have not properly configured the plugin. Please, setup it in the plugin panel admin, filling in all the required fields.', 'wp-delicious-wishlist').
+					  '</p>';
 
 	} else { // if required options aren't blank, then execute the following code
 
 		// Start 3 stars section
 
 		// If $maxitems has not been declared, then we setup it to 5 items to retrieve
-		if ($maxitems == "") $maxitems == "5";
+		if (empty($maxitems)) { $maxitems = "5"; }
 
 		// Retrieve the items from Delicious using nickname + tag wishlist + high tag + max number of items
 		$wdw_rss = fetch_feed('http://feeds.delicious.com/v2/rss/'.$my_nickname.'/'.$my_tag_wishlist.'+'.$my_tag_high.'?count='.$maxitems);
 
-		if(is_wp_error($wdw_rss)) { // Catch the error
+		if(is_wp_error($wdw_rss)) { // if there is a problem with the feed...
 			return __('There was a problem fetching your feed.', 'wp-delicious-wishlist');
 		} else { 
 
@@ -97,13 +108,10 @@ function wp_delicious_wishlist($the_content) {
 							'</a><br />
 							<div class="wishlist-description">'.$wdw_item->get_description().'</div>';
 							// Parse the date into Unix timestamp
-							$time = strtotime($wdw_item->get_date());
-							// Compare the current time to bookmark time
-							if ((abs(time() - $time)) < 86400)
-								$h_time = sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($time));
-							else
-								$h_time = date(__('m/d/Y', 'wp-delicious-wishlist'), $time);
-							$mywishlist .= sprintf('%s','<div class="wishlist-timestamp"><abbr title="'.date(__('m/d/Y H:i:s', 'wp-delicious-wishlist'), $time).'">'.$h_time.'</abbr></div>');
+							$unixDate  = strtotime($wdw_item->get_date());
+							$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
+							$longDate  = strftime(__('%A, %m/%d/%Y %T', 'wp-delicious-wishlist'), $unixDate).' ('.sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($unixDate)).')';
+							$mywishlist .= '<div class="wishlist-timestamp"><abbr title="'.$longDate.'">'.$briefDate.'</abbr></div>';
 						$mywishlist .= '</li>';
 					endforeach;
 				}
@@ -111,9 +119,8 @@ function wp_delicious_wishlist($the_content) {
 		}
 
 		// Start 2 stars section
-		if ($maxitems == "") $maxitems == "5";
 		$wdw_rss = fetch_feed('http://feeds.delicious.com/v2/rss/'.$my_nickname.'/'.$my_tag_wishlist.'+'.$my_tag_medium.'?count='.$maxitems);
-		if(is_wp_error($wdw_rss)) { // Catch the error
+		if(is_wp_error($wdw_rss)) {
 			return __('There was a problem fetching your feed.', 'wp-delicious-wishlist');
 		} else {
 			$num_items = $wdw_rss->get_item_quantity($maxitems); 
@@ -136,12 +143,10 @@ function wp_delicious_wishlist($the_content) {
 								.$wdw_item->get_title().
 							'</a><br />
 							<div class="wishlist-description">'.$wdw_item->get_description().'</div>';
-							$time = strtotime($wdw_item->get_date());
-							if ((abs(time() - $time)) < 86400)
-								$h_time = sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($time));
-							else
-								$h_time = date(__('m/d/Y', 'wp-delicious-wishlist'), $time);
-							$mywishlist .= sprintf('%s','<div class="wishlist-timestamp"><abbr title="'.date(__('m/d/Y H:i:s', 'wp-delicious-wishlist'), $time).'">'.$h_time.'</abbr></div>');
+							$unixDate  = strtotime($wdw_item->get_date());
+							$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
+							$longDate  = strftime(__('%A, %m/%d/%Y %T', 'wp-delicious-wishlist'), $unixDate).' ('.sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($unixDate)).')';
+							$mywishlist .= '<div class="wishlist-timestamp"><abbr title="'.$longDate.'">'.$briefDate.'</abbr></div>';
 						$mywishlist .= '</li>';
 					endforeach;
 				}
@@ -149,9 +154,8 @@ function wp_delicious_wishlist($the_content) {
 		}
 
 		// Start 1 star section
-		if ($maxitems == "") $maxitems == "5";
 		$wdw_rss = fetch_feed('http://feeds.delicious.com/v2/rss/'.$my_nickname.'/'.$my_tag_wishlist.'+'.$my_tag_low.'?count='.$maxitems);
-		if(is_wp_error($wdw_rss)) { // Catch the error
+		if(is_wp_error($wdw_rss)) {
 			return __('There was a problem fetching your feed.', 'wp-delicious-wishlist');
 		} else {
 			$num_items = $wdw_rss->get_item_quantity($maxitems); 
@@ -174,12 +178,10 @@ function wp_delicious_wishlist($the_content) {
 								.$wdw_item->get_title().
 							'</a><br />
 							<div class="wishlist-description">'.$wdw_item->get_description().'</div>';
-							$time = strtotime($wdw_item->get_date());
-							if ((abs( time() - $time)) < 86400)
-								$h_time = sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($time));
-							else
-								$h_time = date(__('m/d/Y', 'wp-delicious-wishlist'), $time);
-							$mywishlist .= sprintf('%s','<div class="wishlist-timestamp"><abbr title="'.date(__('m/d/Y H:i:s', 'wp-delicious-wishlist'), $time).'">'.$h_time.'</abbr></div>');
+							$unixDate  = strtotime($wdw_item->get_date());
+							$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
+							$longDate  = strftime(__('%A, %m/%d/%Y %T', 'wp-delicious-wishlist'), $unixDate).' ('.sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($unixDate)).')';
+							$mywishlist .= '<div class="wishlist-timestamp"><abbr title="'.$longDate.'">'.$briefDate.'</abbr></div>';
 						$mywishlist .= '</li>';
 					endforeach;
 				}
@@ -187,14 +189,11 @@ function wp_delicious_wishlist($the_content) {
 		}
 	}
 
-	// Add our wishlist to the end of the content	
-	$the_content = $the_content.$mywishlist;
-	
-	// send the new version of $the_content back to WP
-	return $the_content;
+	// Return the complete wishlist
+	return $mywishlist;
 }
-add_shortcode('my-delicious-wishlist', 'wp_delicious_wishlist');
 
+// Add the options page
 add_action('admin_menu', 'wdw_menu');
 function wdw_menu() {
 	add_options_page(__('Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist'), __('Delicious Wishlist', 'wp-delicious-wishlist'), 10, __FILE__, 'wdw_options_page');
