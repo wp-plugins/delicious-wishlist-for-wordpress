@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP_Delicious_Wishlist\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-12 14:13+0100\n"
+"POT-Creation-Date: 2010-01-29 12:31+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Aldo Latino <aldolat@gmail.com>\n"
 "Language-Team: Aldo Latino <aldolat@gmail.com>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "X-Poedit-SearchPath-0: ../.\n"
 
 #: .././wdw-options.php:2
-#: .././wp-delicious-wishlist.php:188
-msgid "WordPress Delicious Wishlist Plugin Options"
+#: .././wp-delicious-wishlist.php:199
+msgid "Delicious Wishlist for WordPress Options"
 msgstr ""
 
 #: .././wdw-options.php:4
@@ -133,48 +133,55 @@ msgstr ""
 msgid "for their great idea behind this work."
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:60
-msgid "You have not properly configured the plugin.<br />Please, setup it in the plugin panel admin, filling in all the required fields."
+#: .././wp-delicious-wishlist.php:69
+msgid "You have not properly configured the plugin. Please, setup it in the plugin panel admin, filling in all the required fields."
 msgstr ""
 
 #: .././wp-delicious-wishlist.php:83
+#: .././wp-delicious-wishlist.php:124
+#: .././wp-delicious-wishlist.php:159
+msgid "There was a problem fetching your feed."
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:95
 msgid "I need"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:89
-#: .././wp-delicious-wishlist.php:125
-#: .././wp-delicious-wishlist.php:158
+#: .././wp-delicious-wishlist.php:101
+#: .././wp-delicious-wishlist.php:138
+#: .././wp-delicious-wishlist.php:173
 msgid "Nothing in this moment"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:102
-#: .././wp-delicious-wishlist.php:135
-#: .././wp-delicious-wishlist.php:168
+#: .././wp-delicious-wishlist.php:112
+#: .././wp-delicious-wishlist.php:147
+#: .././wp-delicious-wishlist.php:182
+msgid "%m/%d/%Y"
+msgstr ""
+
+# This is the full date of the bookmark. See http://www.php.net/manual/en/function.strftime.php as reference.
+#: .././wp-delicious-wishlist.php:113
+#: .././wp-delicious-wishlist.php:148
+#: .././wp-delicious-wishlist.php:183
+msgid "%A, %m/%d/%Y %T"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:113
+#: .././wp-delicious-wishlist.php:148
+#: .././wp-delicious-wishlist.php:183
 #, php-format
 msgid "%s ago"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:104
-#: .././wp-delicious-wishlist.php:137
-#: .././wp-delicious-wishlist.php:170
-msgid "m/d/Y"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:105
-#: .././wp-delicious-wishlist.php:138
-#: .././wp-delicious-wishlist.php:171
-msgid "m/d/Y H:i:s"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:120
+#: .././wp-delicious-wishlist.php:133
 msgid "I'd like"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:153
+#: .././wp-delicious-wishlist.php:168
 msgid "I like"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:188
-msgid "WP Delicious Wishlist"
+#: .././wp-delicious-wishlist.php:199
+msgid "Delicious Wishlist"
 msgstr ""
 
