@@ -1,13 +1,13 @@
 /*
-	WordPress 2.8 Plugin: WordPress Delicious Wishlist 0.1
+	WordPress Plugin: Delicious Wishlist for WordPress 0.4
 
 	Stylesheet file wdw.css
 
-	Copyright 2009  Aldo Latino  (email : aldolat@gmail.com)
+	Copyright (C) 2009, 2010  Aldo Latino  (email : aldolat@gmail.com)
 
-    This program is free software; you can redistribute it and/or modify
+    This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
+    the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
@@ -16,8 +16,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
@@ -90,4 +89,17 @@ ul#wishlist-medium li.medium-faces:last-child,
 ul#wishlist-low  li.low-stars:last-child,
 ul#wishlist-low li.low-faces:last-child {
 	margin-bottom: 0;
+}
+
+.wishlist-timestamp abbr {
+	cursor: help;
+}
+
+.wdw_warning {
+	background-color: #ffbb00;
+	border: 2px solid #ff0000;
+	color: #000;
+	font-weight: bold;
+	text-align: center;
+	padding: 7px;
 }
