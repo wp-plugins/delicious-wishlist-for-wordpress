@@ -1,5 +1,5 @@
 /*
-	WordPress Plugin: Delicious Wishlist for WordPress 0.3.5
+	WordPress Plugin: Delicious Wishlist for WordPress 0.4
 
 	Stylesheet file wdw.css
 
@@ -98,7 +98,7 @@ ul#wishlist-low li.low-faces:last-child {
 .wdw_warning {
 	background-color: #ffbb00;
 	border: 2px solid #ff0000;
-	color: #fff;
+	color: #000;
 	font-weight: bold;
 	text-align: center;
 	padding: 7px;
