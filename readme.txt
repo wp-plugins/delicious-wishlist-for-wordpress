@@ -84,6 +84,12 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 = 0.1 =
 * First release of the plugin.
 
+== Upgrade Notice ==
+
+= 0.5 =
+Upgrade is recommended. This version correctly handles the cache and also you can specify alternative sources for your feed.
+
+
 == Credits ==
 
 My thanks go to all people who contributed in revisioning and helping me in any form, and in particular to [Nicola D'Agostino](http://www.nicoladagostino.net/ "Nicola's website") and to [Barbara Arianna Ripepi](http://suzupearl.com/ "Barbara's website") for their great idea behind this work.
