@@ -5,7 +5,7 @@
 	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 0.5
+	Version: 0.6
 */
 
 /*
@@ -38,6 +38,8 @@
  * A backlink to the author is activated
  *
  * @since 0.4
+ * @since 0.5 Check of cache on plugin activation
+ * @since 0.5 Add a backlink to the author (deactivable by the user)
  */
 function wdw_conversion() {
 	// Conversion of old settings before 0.4
@@ -131,7 +133,7 @@ function wdw_options_validate($input) {
  */
 
 function wdw_menu() {
-	add_menu_page(__('Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist'), __('Delicious Wishlist', 'wp-delicious-wishlist'), 'administrator', __FILE__, 'wdw_options_page', plugins_url('/images/wdw_icon.png', __FILE__));
+	add_menu_page(__('Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist'), __('Dlcs Wishlist', 'wp-delicious-wishlist'), 'administrator', __FILE__, 'wdw_options_page', plugins_url('/images/wdw_icon.png', __FILE__));
 }
 add_action('admin_menu', 'wdw_menu');
 
@@ -167,11 +169,11 @@ function wdw_cache_time($wdw_cache) {
 /**
  * wp_delicious_wishlist()
  *
- * The main function
+ * The core function
  *
  * @since 0.1
- *
  * @since 0.5 Alternative feeds
+ * @since 0.6 Tag section
  */
 
 function wp_delicious_wishlist() {
@@ -193,6 +195,8 @@ function wp_delicious_wishlist() {
 	$wdw_altfeed_ht   = $wdws['wdw_delicious_alt_feed_ht'];
 	$wdw_altfeed_mt   = $wdws['wdw_delicious_alt_feed_mt'];
 	$wdw_altfeed_lt   = $wdws['wdw_delicious_alt_feed_lt'];
+	$wdw_tags         = $wdws['wdw_tags'];
+	$wdw_remove_tags  = $wdws['wdw_remove_tags'];
 	$wdw_backlink     = $wdws['wdw_backlink'];
 
 	// check if fields' values are blank
@@ -270,9 +274,53 @@ function wp_delicious_wishlist() {
 							<div class="wishlist-description">'.$wdw_item->get_description().'</div>';
 							// Parse the date into Unix timestamp
 							$unixDate  = strtotime($wdw_item->get_date());
+							// This is the short date
 							$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
+							// This is the long date displayed when the mouse overs on it
 							$longDate  = strftime(__('%A, %m/%d/%Y at %T', 'wp-delicious-wishlist'), $unixDate).' ('.sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($unixDate)).')';
+							// Let's build the final line
 							$wdw_wishlist .= '<div class="wishlist-timestamp"><abbr title="'.$longDate.'">'.$briefDate.'</abbr></div>';
+
+							/**
+							 * Tag section
+							 *
+							 * @since 0.6
+							 */
+							if($wdw_tags) {
+								// Define $tags as an array and assign the content of get_item_tags
+								$tags = ''; $tags = array(); $tags = $wdw_item->get_item_tags('', 'category');
+								// If $tags has content
+								if($tags) {
+									// Make sure the new variable $mytags be empty
+									$mytags = '';
+									// for each content of the array...
+									foreach($tags as $tag) {
+										// assign to $mytags a comma and the subsection 'data' of $tag
+										$mytags .= $tag['data'].',';
+									}
+									// Convert each value between two commas into an item of a new array.
+									// 'explode' automagically converts them and converts $mytags into an array
+									$mytags = explode(',',$mytags);
+									// Now $mytags is an array of values, so let's create each final tag
+									// If the user doesn't want to display the base wishlist tags, let's remove them
+									if($wdw_remove_tags) {
+										// Fill an array with the base Wishlist tags
+										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_high, $wdw_tag_medium, $wdw_tag_low);
+										// Let's remove them from the tags to display
+										$mytags = str_replace($tags_to_remove, '', $mytags);
+									}
+									// Take the domain to use it as the base url
+									$myurl = $tag['attribs']['']['domain'];
+									// Make sure that the new variable $all_tags be empty
+									$all_tags = '';
+									// This is the final loop for our Wishlist
+									foreach($mytags as $mytag) {
+										$all_tags .= '<a class="wishlist-tag" href="'.$myurl.$mytag.'">'.$mytag.'</a> ';
+									}
+									$wdw_wishlist .= '<div class="wishlist-tags">'.$all_tags.'</div>';
+								}
+							}
+
 						$wdw_wishlist .= '</li>';
 					endforeach;
 				}
@@ -315,6 +363,26 @@ function wp_delicious_wishlist() {
 							$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
 							$longDate  = strftime(__('%A, %m/%d/%Y at %T', 'wp-delicious-wishlist'), $unixDate).' ('.sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($unixDate)).')';
 							$wdw_wishlist .= '<div class="wishlist-timestamp"><abbr title="'.$longDate.'">'.$briefDate.'</abbr></div>';
+							if($wdw_tags) {
+								$tags = ''; $tags = array(); $tags = $wdw_item->get_item_tags('', 'category');
+								if($tags) {
+									$mytags = '';
+									foreach($tags as $tag) {
+										$mytags .= $tag['data'].',';
+									}
+									$mytags = explode(',',$mytags);
+									if($wdw_remove_tags) {
+										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_high, $wdw_tag_medium, $wdw_tag_low);
+										$mytags = str_replace($tags_to_remove, '', $mytags);
+									}
+									$myurl = $tag['attribs']['']['domain'];
+									$all_tags = '';
+									foreach($mytags as $mytag) {
+										$all_tags .= '<a class="wishlist-tag" href="'.$myurl.$mytag.'">'.$mytag.'</a> ';
+									}
+									$wdw_wishlist .= '<div class="wishlist-tags">'.$all_tags.'</div>';
+								}
+							}
 						$wdw_wishlist .= '</li>';
 					endforeach;
 				}
@@ -357,6 +425,26 @@ function wp_delicious_wishlist() {
 							$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
 							$longDate  = strftime(__('%A, %m/%d/%Y at %T', 'wp-delicious-wishlist'), $unixDate).' ('.sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($unixDate)).')';
 							$wdw_wishlist .= '<div class="wishlist-timestamp"><abbr title="'.$longDate.'">'.$briefDate.'</abbr></div>';
+							if($wdw_tags) {
+								$tags = ''; $tags = array(); $tags = $wdw_item->get_item_tags('', 'category');
+								if($tags) {
+									$mytags = '';
+									foreach($tags as $tag) {
+										$mytags .= $tag['data'].',';
+									}
+									$mytags = explode(',',$mytags);
+									if($wdw_remove_tags) {
+										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_high, $wdw_tag_medium, $wdw_tag_low);
+										$mytags = str_replace($tags_to_remove, '', $mytags);
+									}
+									$myurl = $tag['attribs']['']['domain'];
+									$all_tags = '';
+									foreach($mytags as $mytag) {
+										$all_tags .= '<a class="wishlist-tag" href="'.$myurl.$mytag.'">'.$mytag.'</a> ';
+									}
+									$wdw_wishlist .= '<div class="wishlist-tags">'.$all_tags.'</div>';
+								}
+							}
 						$wdw_wishlist .= '</li>';
 					endforeach;
 				}
@@ -365,7 +453,7 @@ function wp_delicious_wishlist() {
 	}
 
 	if($wdw_backlink) {
-		$wdw_wishlist .= __('<p class="wdw_backlink">Created using <a href="http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/">Delicious Wishlist for WordPress</a>.</p>', 'wp-delicious-wishlist');
+		$wdw_wishlist .= '<p class="wdw_backlink">'.__('Created using','wp-delicious-wishlist').' <a href="http://wordpress.org/extend/plugins/delicious-wishlist-for-wordpress/">'.__('Delicious Wishlist for WordPress', 'wp-delicious-wishlist').'</a>.</p>';
 	}
 
 	// Return the complete wishlist
@@ -399,7 +487,7 @@ function wdw_options_page() { ?>
 			<div style="float: right; width: 25%">
 
 				<div class="postbox">
-					<h3><?php _e('Support me!', 'wp-delicious-wishlist'); ?></h3>
+					<h3 style="cursor: default;"><?php _e('Support me!', 'wp-delicious-wishlist'); ?></h3>
 					<div class="inside">
 						<p><?php _e('If you find this plugin useful, please help me continuing to develop it.', 'wp-delicious-wishlist'); ?></p>
 						<p><?php _e('The easiest way to do this is to make a donation via PayPal, a well-known and secure method to make me happy!', 'wp-delicious-wishlist'); ?></p>
@@ -410,6 +498,11 @@ function wdw_options_page() { ?>
 							<img alt="" border="0" src="https://www.paypal.com/it_IT/i/scr/pixel.gif" width="1" height="1">
 						</form>
 						<p style="text-align: center;">
+							<a style="font-weight: bold;" href="http://www.aldolat.it/info/wishlist/">
+								<?php _e('If you want, you may also visit my wishlist.', 'wp-delicious-wishlist').' &rarr;'; ?>
+							</a>
+						</p>
+						<p style="text-align: center;">
 							<a style="font-weight: bold;" href="http://www.aldolat.it/support/forum/51">
 								<?php _e('Need help?<br />Visit my forums', 'wp-delicious-wishlist').' &rarr;'; ?>
 							</a>
@@ -418,7 +511,7 @@ function wdw_options_page() { ?>
 				</div>
 
 				<div class="postbox">
-					<h3><?php _e('Uninstall info', 'wp-delicious-wishlist'); ?></h3>
+					<h3 style="cursor: default;"><?php _e('Uninstall info', 'wp-delicious-wishlist'); ?></h3>
 					<div class="inside">
 						<p>
 							<?php _e('If you decide to uninstall this plugin, it will delete any options it created. No further user action is required. Deactivating the plugin will not erase any data.', 'wp-delicious-wishlist'); ?>
@@ -427,7 +520,7 @@ function wdw_options_page() { ?>
 				</div>
 
 				<div class="postbox">
-					<h3><?php _e('Credits', 'wp-delicious-wishlist'); ?></h3>
+					<h3 style="cursor: default;"><?php _e('Credits', 'wp-delicious-wishlist'); ?></h3>
 					<div class="inside">
 						<p>
 							<?php _e('My thanks go to all people who contributed in revisioning and helping me in any form, and in particular to', 'wp-delicious-wishlist'); ?>
@@ -444,7 +537,7 @@ function wdw_options_page() { ?>
 
 				<form method="post" action="options.php">
 					<div class="postbox">
-						<h3><?php _e('Base Settings', 'wp-delicious-wishlist'); ?></h3>
+						<h3 style="cursor: default;"><?php _e('Base Settings', 'wp-delicious-wishlist'); ?></h3>
 						<div class="inside">
 							<?php settings_fields('wdw-options-group'); $wdws = array(); $wdws = get_option('wdw_options'); ?>
 							<table class="widefat" style="clear: none;">
@@ -542,6 +635,22 @@ function wdw_options_page() { ?>
 								</tr>
 								<tr valign="top">
 									<th scope="row">
+										<?php _e('Display tags...', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="checkbox" value="1" name="wdw_options[wdw_tags]" id="wdw_tags"<?php if($wdws['wdw_tags']) { echo ' checked="true"'; } ?> />
+									</td>
+								</tr>
+								<tr valign="top">
+									<th scope="row">
+										<?php _e('... but do not display my Wishlist tags', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="checkbox" value="1" name="wdw_options[wdw_remove_tags]" id="wdw_remove_tags"<?php if($wdws['wdw_remove_tags']) { echo ' checked="true"'; } ?> />
+									</td>
+								</tr>
+								<tr valign="top">
+									<th scope="row">
 										<?php _e('Link to the author', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
@@ -559,7 +668,7 @@ function wdw_options_page() { ?>
 					<!-- close postbox base settings -->
 
 					<div class="postbox">
-						<h3><?php _e('Alternative feed source', 'wp-delicious-wishlist'); ?></h3>
+						<h3 style="cursor: default;"><?php _e('Alternative feed source', 'wp-delicious-wishlist'); ?></h3>
 						<div class="inside">
 							<p>
 								<?php _e('If you experience problems in fetching your feeds directly from Delicious, '.
@@ -609,7 +718,7 @@ function wdw_options_page() { ?>
 				<!-- close form -->
 
 				<div class="postbox">
-					<h3 id="user-guide"><?php _e('User Guide', 'wp-delicious-wishlist'); ?></h3>
+					<h3 style="cursor: default;" id="user-guide"><?php _e('User Guide', 'wp-delicious-wishlist'); ?></h3>
 					<div class="inside">
 						<h4><?php _e('Installation', 'wp-delicious-wishlist'); ?></h4>
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP_Delicious_Wishlist\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-27 21:07+0100\n"
+"POT-Creation-Date: 2010-04-01 20:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Aldo Latino <aldolat@gmail.com>\n"
 "Language-Team: Aldo Latino <aldolat@gmail.com>\n"
@@ -17,233 +17,253 @@ msgstr ""
 "X-Poedit-SearchPath-0: ../.\n"
 
 #: .././wp-delicious-wishlist.php:134
-#: .././wp-delicious-wishlist.php:390
+#: .././wp-delicious-wishlist.php:468
 msgid "Delicious Wishlist for WordPress Options"
 msgstr ""
 
+# This name would have to be "Delicious Wishlist", but we shorten it for space reason.
 #: .././wp-delicious-wishlist.php:134
-msgid "Delicious Wishlist"
+msgid "Dlcs Wishlist"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:209
+#: .././wp-delicious-wishlist.php:211
 msgid "You have not properly configured the plugin. Please, setup it in the plugin panel admin, filling in all the required fields."
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:240
-#: .././wp-delicious-wishlist.php:291
-#: .././wp-delicious-wishlist.php:333
+#: .././wp-delicious-wishlist.php:242
+#: .././wp-delicious-wishlist.php:329
+#: .././wp-delicious-wishlist.php:391
 msgid "<p>There was a problem fetching your feed. The problem is:<br />"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:256
+#: .././wp-delicious-wishlist.php:258
 msgid "I need"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:262
-#: .././wp-delicious-wishlist.php:306
-#: .././wp-delicious-wishlist.php:348
+#: .././wp-delicious-wishlist.php:264
+#: .././wp-delicious-wishlist.php:344
+#: .././wp-delicious-wishlist.php:406
 msgid "Nothing in this moment"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:273
-#: .././wp-delicious-wishlist.php:315
-#: .././wp-delicious-wishlist.php:357
+# This is the short date of the bookmark and appears directly in the webpage. See http://www.php.net/manual/en/function.strftime.php as reference.
+#: .././wp-delicious-wishlist.php:275
+#: .././wp-delicious-wishlist.php:353
+#: .././wp-delicious-wishlist.php:415
 msgid "%m/%d/%Y"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:274
-#: .././wp-delicious-wishlist.php:316
-#: .././wp-delicious-wishlist.php:358
+# This is the full date and time of the bookmark and appears in the tooltip when the mouse holds over the date. See http://www.php.net/manual/en/function.strftime.php as reference.
+#: .././wp-delicious-wishlist.php:276
+#: .././wp-delicious-wishlist.php:354
+#: .././wp-delicious-wishlist.php:416
 msgid "%A, %m/%d/%Y at %T"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:274
-#: .././wp-delicious-wishlist.php:316
-#: .././wp-delicious-wishlist.php:358
+#: .././wp-delicious-wishlist.php:276
+#: .././wp-delicious-wishlist.php:354
+#: .././wp-delicious-wishlist.php:416
 #, php-format
 msgid "%s ago"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:301
+#: .././wp-delicious-wishlist.php:339
 msgid "I'd like"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:343
+#: .././wp-delicious-wishlist.php:401
 msgid "I like"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:368
-msgid "<p class=\"wdw_backlink\">Created using <a href=\"http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/\">Delicious Wishlist for WordPress</a>.</p>"
+#: .././wp-delicious-wishlist.php:446
+msgid "Created using"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:393
+# This is the name of the plugin and appears in the backlink at the bottom of the generated page. Leave it in English, please.
+#: .././wp-delicious-wishlist.php:446
+msgid "Delicious Wishlist for WordPress"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:471
 #, php-format
 msgid "%1$srequired fields%2$s"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:394
+#: .././wp-delicious-wishlist.php:472
 #, php-format
 msgid "The User Guide is %1$sbelow%2$s."
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:402
+#: .././wp-delicious-wishlist.php:480
 msgid "Support me!"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:404
+#: .././wp-delicious-wishlist.php:482
 msgid "If you find this plugin useful, please help me continuing to develop it."
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:405
+#: .././wp-delicious-wishlist.php:483
 msgid "The easiest way to do this is to make a donation via PayPal, a well-known and secure method to make me happy!"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:409
+#: .././wp-delicious-wishlist.php:487
 msgid "PayPal - The safer, easier way to pay online!"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:414
+#: .././wp-delicious-wishlist.php:492
+msgid "If you want, you may also visit my wishlist."
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:497
 msgid "Need help?<br />Visit my forums"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:421
+#: .././wp-delicious-wishlist.php:504
 msgid "Uninstall info"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:424
+#: .././wp-delicious-wishlist.php:507
 msgid "If you decide to uninstall this plugin, it will delete any options it created. No further user action is required. Deactivating the plugin will not erase any data."
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:430
+#: .././wp-delicious-wishlist.php:513
 msgid "Credits"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:433
+#: .././wp-delicious-wishlist.php:516
 msgid "My thanks go to all people who contributed in revisioning and helping me in any form, and in particular to"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:434
+#: .././wp-delicious-wishlist.php:517
 msgid "and to"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:435
+#: .././wp-delicious-wishlist.php:518
 msgid "for their great idea behind this work."
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:447
+#: .././wp-delicious-wishlist.php:530
 msgid "Base Settings"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:453
+#: .././wp-delicious-wishlist.php:536
 msgid "Delicious Nickname [*]"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:461
+#: .././wp-delicious-wishlist.php:544
 msgid "Delicious Wishlist Tag [*]"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:469
+#: .././wp-delicious-wishlist.php:552
 msgid "Title for High Tag section"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:477
+#: .././wp-delicious-wishlist.php:560
 msgid "Delicious High Tag [*]"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:485
+#: .././wp-delicious-wishlist.php:568
 msgid "Title for Medium Tag section"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:493
+#: .././wp-delicious-wishlist.php:576
 msgid "Delicious Medium Tag [*]"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:501
+#: .././wp-delicious-wishlist.php:584
 msgid "Title for Low Tag section"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:509
+#: .././wp-delicious-wishlist.php:592
 msgid "Delicious Low Tag [*]"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:517
+#: .././wp-delicious-wishlist.php:600
 msgid "How many items (max 100)"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:525
+#: .././wp-delicious-wishlist.php:608
 msgid "Icons style"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:530
+#: .././wp-delicious-wishlist.php:613
 msgid "Stars"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:531
+#: .././wp-delicious-wishlist.php:614
 msgid "Faces"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:537
+#: .././wp-delicious-wishlist.php:620
 msgid "Feed cache time (in seconds, min 3600)"
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:545
-msgid "Link to the author"
+#: .././wp-delicious-wishlist.php:628
+msgid "Display tags..."
 msgstr ""
 
-#: .././wp-delicious-wishlist.php:554
-#: .././wp-delicious-wishlist.php:602
-msgid "Save Changes"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:562
-msgid "Alternative feed source"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:565
-msgid "If you experience problems in fetching your feeds directly from Delicious, you can use another service that fetches your feeds for you (such as FeedBurner or Yahoo! Pipes or other services). Enter here the alternative feed URLs, that this plugin will use instead of Delicious' feeds."
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:574
-msgid "Feed for High Tag section:"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:583
-msgid "Feed for Medium Tag section:"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:592
-msgid "Feed for Low Tag section:"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:612
-msgid "User Guide"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:614
-msgid "Installation"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:617
-msgid "This plugin allows you to publish in your blog a wishlist using your Delicious bookmarks. In order to make this, when you visit a web page with something you like, tag that page with two different bookmarks: <code>wishlist</code> and, if it is very important, <code>***</code> (three stars). Then, when you visit a page with something less important, you could use <code>wishlist</code> and <code>**</code> (two stars), and finally for a page with something even less important, you could use <code>wishlist</code> and <code>*</code> (one star). It's not mandatory to use these exact tags: you can choose your own tags, but consider that you have to bookmark a page with at least two different tags: one general to collect all your bookmarks relative to your wishlist, and another to mark that page depending on the importance of the stuff for you.<br /><br />When you are done with an item (you have bought it or someone gave it to you as a gift), you can edit that bookmark on Delicious and remove the star(s), leaving only the main tag (e.g., <code>wishlist</code>), so you can maintain in Delicious an archive of all desired items.<br /><br />To start, fill in the fields in the form above."
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:630
-msgid "<strong>All fields are required (except for Titles).</strong> The values are not case sensitive."
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:634
-msgid "When you are done filling those fields, clic on the \"Save Changes\" button and create a new page and give it a title you want. In the body of the page, paste the following shortcode:"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:638
-msgid "You can add some text before and/or after the shortcode. Publish the page and visit it on your blog. You are done!"
-msgstr ""
-
-#: .././wp-delicious-wishlist.php:641
-msgid "Changing the style of the Wishlist page"
+#: .././wp-delicious-wishlist.php:636
+msgid "... but do not display my Wishlist tags"
 msgstr ""
 
 #: .././wp-delicious-wishlist.php:644
+msgid "Link to the author"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:653
+#: .././wp-delicious-wishlist.php:701
+msgid "Save Changes"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:661
+msgid "Alternative feed source"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:664
+msgid "If you experience problems in fetching your feeds directly from Delicious, you can use another service that fetches your feeds for you (such as FeedBurner or Yahoo! Pipes or other services). Enter here the alternative feed URLs, that this plugin will use instead of Delicious' feeds."
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:673
+msgid "Feed for High Tag section:"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:682
+msgid "Feed for Medium Tag section:"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:691
+msgid "Feed for Low Tag section:"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:711
+msgid "User Guide"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:713
+msgid "Installation"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:716
+msgid "This plugin allows you to publish in your blog a wishlist using your Delicious bookmarks. In order to make this, when you visit a web page with something you like, tag that page with two different bookmarks: <code>wishlist</code> and, if it is very important, <code>***</code> (three stars). Then, when you visit a page with something less important, you could use <code>wishlist</code> and <code>**</code> (two stars), and finally for a page with something even less important, you could use <code>wishlist</code> and <code>*</code> (one star). It's not mandatory to use these exact tags: you can choose your own tags, but consider that you have to bookmark a page with at least two different tags: one general to collect all your bookmarks relative to your wishlist, and another to mark that page depending on the importance of the stuff for you.<br /><br />When you are done with an item (you have bought it or someone gave it to you as a gift), you can edit that bookmark on Delicious and remove the star(s), leaving only the main tag (e.g., <code>wishlist</code>), so you can maintain in Delicious an archive of all desired items.<br /><br />To start, fill in the fields in the form above."
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:729
+msgid "<strong>All fields are required (except for Titles).</strong> The values are not case sensitive."
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:733
+msgid "When you are done filling those fields, clic on the \"Save Changes\" button and create a new page and give it a title you want. In the body of the page, paste the following shortcode:"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:737
+msgid "You can add some text before and/or after the shortcode. Publish the page and visit it on your blog. You are done!"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:740
+msgid "Changing the style of the Wishlist page"
+msgstr ""
+
+#: .././wp-delicious-wishlist.php:743
 msgid "The page is stylized using the css file included in the plugin directory. If you want to restyle the page, you can put a css file in the root directory of the theme you are using, create your styles, and name it <code>wdw.css</code>. All future versions of this plugin will load only your own css file."
 msgstr ""
 

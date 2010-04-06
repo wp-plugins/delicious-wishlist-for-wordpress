@@ -1,5 +1,5 @@
 /*
-	WordPress Plugin: Delicious Wishlist for WordPress 0.5
+	WordPress Plugin: Delicious Wishlist for WordPress 0.6
 
 	Stylesheet file wdw.css
 
@@ -93,6 +93,17 @@ ul#wishlist-low li.low-faces:last-child {
 
 .wishlist-timestamp abbr {
 	cursor: help;
+}
+
+a.wishlist-tag {
+	font-size: 0.8em;
+	font-weight: normal;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+}
+
+.wdw_backlink {
+	font-size: 0.8em;
 }
 
 .wdw_warning {
