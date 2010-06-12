@@ -5,7 +5,7 @@
 	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 0.6
+	Version: 1.0
 */
 
 /*
@@ -26,13 +26,14 @@
 */
 
 
-/**
+/*
  * TODO : Add widget for sidebar
  */
 
 
 /**
  * wdw_conversion()
+ *
  * On plugin activation (or on plugin update), it converts the old options set to only one row in the database
  * If the cache time is set to 1800 (from 0.4), the function will set it to 3600
  * A backlink to the author is activated
@@ -94,6 +95,7 @@ register_activation_hook(__FILE__, 'wdw_conversion');
 
 /**
  * wdw_init()
+ *
  * Preliminary actions
  *
  * @since 0.4
@@ -105,7 +107,7 @@ function wdw_init() {
 add_action( 'admin_init', 'wdw_init' );
 
 
-/*
+/**
  * wdw_options_validate($input)
  *
  * Sanitize of some options
@@ -124,7 +126,7 @@ function wdw_options_validate($input) {
 }
 
 
-/*
+/**
  * wdw_menu()
  *
  * Add the options page
@@ -138,13 +140,12 @@ function wdw_menu() {
 add_action('admin_menu', 'wdw_menu');
 
 
-/*
+/**
  * wdw_cache_time($wdw_cache)
  *
  * Override the standard 12 hours Wordpress cache time and set it to user's choice or to 1 hour.
  *
  * @since 0.4
- *
  * @param int @wdw_cache can be >= 3600
  */
 
@@ -169,7 +170,7 @@ function wdw_cache_time($wdw_cache) {
 /**
  * wp_delicious_wishlist()
  *
- * The core function
+ * The core function.
  *
  * @since 0.1
  * @since 0.5 Alternative feeds
@@ -281,7 +282,7 @@ function wp_delicious_wishlist() {
 							// Let's build the final line
 							$wdw_wishlist .= '<div class="wishlist-timestamp"><abbr title="'.$longDate.'">'.$briefDate.'</abbr></div>';
 
-							/**
+							/*
 							 * Tag section
 							 *
 							 * @since 0.6
@@ -468,8 +469,8 @@ add_shortcode('my-delicious-wishlist', 'wp_delicious_wishlist');
  * Load the options page
  *
  * @since 0.1
- *
  * @since 0.5 Alternative feeds
+ * @since 1.0 Use or not the plugin CSS file
  */
 
 function wdw_options_page() { ?>
@@ -478,8 +479,10 @@ function wdw_options_page() { ?>
 		<h2><?php _e('Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist'); ?></h2>
 
 		<p>
-			<?php printf(__('%1$srequired fields%2$s','wp-delicious-wishlist'), '<strong>[*] = ', '.</strong>'); ?> &bull;
-			<?php printf(__('The User Guide is %1$sbelow%2$s.','wp-delicious-wishlist'), '<a href="#user-guide">', '</a>'); ?>
+			<?php
+				printf(__('%1$srequired fields%2$s','wp-delicious-wishlist'), '<strong>[*] = ', '.</strong> &bull;');
+				printf(__('The User Guide is %1$sbelow%2$s.','wp-delicious-wishlist'), '<a href="#user-guide">', '</a>');
+			?>
 		</p>
 
 		<div class="clear" id="poststuff" style="max-width: 800px;">
@@ -651,6 +654,14 @@ function wdw_options_page() { ?>
 								</tr>
 								<tr valign="top">
 									<th scope="row">
+										<?php _e('Use plugin\'s CSS', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="checkbox" value="1" name="wdw_options[wdw_css]" id="wdw_css"<?php if($wdws['wdw_css']) { echo ' checked="true"'; } ?> />
+									</td>
+								</tr>
+								<tr valign="top">
+									<th scope="row">
 										<?php _e('Link to the author', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
@@ -778,13 +789,19 @@ function wdw_options_page() { ?>
  * Add the stylesheet
  *
  * @since 0.1
+ * @since 1.0 The plugin can avoid the use of CSS. The user will stylize the output via theme's CSS.
  */
 
 function wp_delicious_wishlist_stylesheets() {
-	if(file_exists(TEMPLATEPATH.'/wdw.css')) {
-		wp_enqueue_style('wp-delicious-wishlist', get_stylesheet_directory_uri().'/wdw.css', false, false, 'all');
-	} else {
-		wp_enqueue_style('wp-delicious-wishlist', plugins_url('delicious-wishlist-for-wordpress/wdw.css'), false, false, 'all');
+	$wdws = array();
+	$wdws = get_option('wdw_options');
+	$wdw_css = $wdws['wdw_css'];
+	if($wdw_css) {
+		if(file_exists(TEMPLATEPATH.'/wdw.css')) {
+			wp_enqueue_style('wp-delicious-wishlist', get_stylesheet_directory_uri().'/wdw.css', false, false, 'all');
+		} else {
+			wp_enqueue_style('wp-delicious-wishlist', plugins_url('delicious-wishlist-for-wordpress/wdw.css'), false, false, 'all');
+		}
 	}
 }
 add_action('wp_print_styles', 'wp_delicious_wishlist_stylesheets');

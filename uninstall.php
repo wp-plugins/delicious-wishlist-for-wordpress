@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Delicious Wishlist for WordPress uninstallation
  *
  * @since 0.5
