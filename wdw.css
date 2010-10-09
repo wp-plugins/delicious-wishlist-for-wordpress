@@ -1,5 +1,5 @@
 /*
-	WordPress Plugin: Delicious Wishlist for WordPress 1.0
+	WordPress Plugin: Delicious Wishlist for WordPress 2.0
 
 	Stylesheet file wdw.css
 
@@ -25,12 +25,22 @@ h3#high, h3#medium, h3#low {
 }
 
 ul#wishlist-high, ul#wishlist-medium, ul#wishlist-low {
-	margin-bottom: 20px;
 	list-style-type: none;
+	margin-bottom: 20px;
+	margin-left: 0;
 }
 
-div.entry ul#wishlist-low:last-child {
+ul#wishlist-high p, ul#wishlist-medium p, ul#wishlist-low p {
 	margin-bottom: 0;
+}
+
+p.wishlist-description, p.wishlist-timestamp, p.wishlist-tags {
+	font-size: 0.8em;
+	margin-top: 5px;
+}
+
+p.wishlist-description {
+	line-height: 130%;
 }
 
 ul#wishlist-high li.high-stars,
@@ -67,10 +77,6 @@ ul#wishlist-low li.low-stars {
 
 ul#wishlist-low li.low-faces {
 	background: transparent url('images/wdw-faces-low.png') no-repeat 0 0;
-}
-
-.wishlist-description, .wishlist-timestamp {
-	margin: 5px 0;
 }
 
 ul#wishlist-high li.high-stars:before,
@@ -114,3 +120,18 @@ a.wishlist-tag {
 	text-align: center;
 	padding: 7px;
 }
+
+/*
+********* Sidebar Area ****************/
+
+.widget-area ul#wishlist-high, .widget-area ul#wishlist-medium,
+.widget-area ul#wishlist-low {
+	margin-left: 0 !important;
+}
+
+.widget-area ul#wishlist-high li, .widget-area ul#wishlist-medium li,
+.widget-area ul#wishlist-low li {
+	background: none!important;
+	padding-left: 0!important;
+}
+

@@ -14,5 +14,3 @@ if(!defined('ABSPATH') && !defined('WP_UNINSTALL_PLUGIN'))
 // Delete options from the database
 
 delete_option('wdw_options');
-
-?>
