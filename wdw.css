@@ -34,8 +34,11 @@ ul#wishlist-high p, ul#wishlist-medium p, ul#wishlist-low p {
 	margin-bottom: 0;
 }
 
-p.wishlist-description, p.wishlist-timestamp, p.wishlist-tags {
+p.wishlist-timestamp, p.wishlist-tags {
 	font-size: 0.8em;
+}
+
+p.wishlist-description, p.wishlist-timestamp, p.wishlist-tags {
 	margin-top: 5px;
 }
 
