@@ -250,7 +250,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '' 
 		if( is_wp_error( $wdw_rss ) ) {
 			remove_filter( 'wp_feed_cache_transient_lifetime', 'wdw_cache_time' );
 			// Tell me what's going wrong
-			$wdw_wishlist = __( '<p>There was a problem fetching your feed. The problem is:<br />', 'wp-delicious-wishlist' ) . '<strong>' . $wdw_rss->get_error_message() . '</strong></p>';
+			$wdw_wishlist = '<p>' . sprintf( __( 'There was a problem fetching your first feed. The problem is:%s', 'wp-delicious-wishlist' ), '<br /><strong>' . $wdw_rss->get_error_message() . '</strong>') . '</p>';
 		// ... else execute
 		} else {
 
@@ -364,7 +364,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '' 
 		}
 		if(is_wp_error($wdw_rss)) {
 			remove_filter('wp_feed_cache_transient_lifetime', 'wdw_cache_time');
-			$wdw_wishlist .= __('<p>There was a problem fetching your feed. The problem is:<br />', 'wp-delicious-wishlist').'<strong>'.$wdw_rss->get_error_message().'</strong></p>';
+			$wdw_wishlist .= '<p>' . sprintf( __( 'There was a problem fetching your second feed. The problem is:%s', 'wp-delicious-wishlist' ), '<br /><strong>' . $wdw_rss->get_error_message() . '</strong>') . '</p>';
 		} else {
 			remove_filter('wp_feed_cache_transient_lifetime', 'wdw_cache_time');
 			$num_items = $wdw_rss->get_item_quantity($wdw_maxitems);
@@ -443,7 +443,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '' 
 		}
 		if(is_wp_error($wdw_rss)) {
 			remove_filter('wp_feed_cache_transient_lifetime', 'wdw_cache_time');
-			$wdw_wishlist .= __('<p>There was a problem fetching your feed. The problem is:<br />', 'wp-delicious-wishlist').'<strong>'.$wdw_rss->get_error_message().'</strong></p>';
+			$wdw_wishlist .= '<p>' . sprintf( __( 'There was a problem fetching your third feed. The problem is:%s', 'wp-delicious-wishlist' ), '<br /><strong>' . $wdw_rss->get_error_message() . '</strong>') . '</p>';
 		} else {
 			remove_filter('wp_feed_cache_transient_lifetime', 'wdw_cache_time');
 			$num_items = $wdw_rss->get_item_quantity($wdw_maxitems);
@@ -688,9 +688,7 @@ function wdw_options_page() { ?>
 					<h3 style="cursor: default;"><?php _e('Credits', 'wp-delicious-wishlist'); ?></h3>
 					<div class="inside">
 						<p>
-							<?php _e('My thanks go to all people who contributed in revisioning and helping me in any form, and in particular to', 'wp-delicious-wishlist'); ?>
-							 <a href="http://www.nicoladagostino.net/">Nicola D'Agostino</a> <?php _e('and to', 'wp-delicious-wishlist'); ?>
-							 <a href="http://suzupearl.com/">Barbara Arianna Ripepi</a> <?php _e('for their great idea behind this work.', 'wp-delicious-wishlist'); ?>
+							<?php printf( __('My thanks go to all people who contributed in revisioning and helping me in any form, and in particular to %1$s and to %2$s for their great idea behind this work.', 'wp-delicious-wishlist'), '<a href="http://www.nicoladagostino.net/">Nicola D\'Agostino</a>', '<a href="http://suzupearl.com/">Barbara Arianna Ripepi</a>' ); ?>
 						</p>
 					</div>
 				</div>
@@ -949,10 +947,9 @@ function wdw_options_page() { ?>
 						</p>
 
 						<p>
-							<?php _e('When you are done filling those fields, clic on the "Save Changes" button '.
-							'and create a new page and give it a title you want. '.
-							'In the body of the page, paste the following shortcode:', 'wp-delicious-wishlist'); ?>
-							<br /><br /><code style="font-size: 1.3em;">[my-delicious-wishlist]</code><br /><br />
+							<?php printf( __( 'When you are done filling those fields, clic on the "Save Changes" button, '.
+							'create a new page, and give it a title you want. '.
+							'In the body of the page, paste the following shortcode: %s', 'wp-delicious-wishlist'), '<br /><br /><code style="font-size: 1.3em;">[my-delicious-wishlist]</code><br /><br />' ); ?>
 							<?php _e('You can add some text before and/or after the shortcode. Publish the page and visit it on your blog. You are done!', 'wp-delicious-wishlist'); ?>
 						</p>
 
