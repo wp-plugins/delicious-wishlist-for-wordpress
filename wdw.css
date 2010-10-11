@@ -35,7 +35,18 @@ ul#wishlist-high p, ul#wishlist-medium p, ul#wishlist-low p {
 }
 
 p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
+	display: inline;
+	float: left;
 	font-size: 0.8em;
+	margin-right: 10px;
+}
+
+.wdw_widget p.wishlist-timestamp, .wdw_widget p.wishlist-tags,
+.wdw_widget p.wishlist-section {
+	border: 0 none;
+	display: block;
+	float: none;
+	margin-right: 0;
 }
 
 p.wishlist-description, p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
@@ -54,6 +65,7 @@ ul#wishlist-low li.low-stars,
 ul#wishlist-low li.low-faces {
 	line-height: 130%;
 	margin: 0 0 15px 0;
+	overflow: hidden;
 	padding: 0 0 0 55px;
 	text-indent: 0; /* for Default WordPress theme */
 }
@@ -98,6 +110,7 @@ ul#wishlist-medium li.medium-faces:last-child,
 ul#wishlist-low  li.low-stars:last-child,
 ul#wishlist-low li.low-faces:last-child {
 	margin-bottom: 0;
+	overflow: hidden;
 }
 
 .wishlist-timestamp abbr {
