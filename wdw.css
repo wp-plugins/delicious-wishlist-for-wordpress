@@ -1,13 +1,13 @@
 /*
-	WordPress 2.8 Plugin: WordPress Delicious Wishlist 0.1
+	WordPress Plugin: Delicious Wishlist for WordPress 2.1
 
 	Stylesheet file wdw.css
 
-	Copyright 2009  Aldo Latino  (email : aldolat@gmail.com)
+	Copyright (C) 2009, 2010  Aldo Latino  (email : aldolat@gmail.com)
 
-    This program is free software; you can redistribute it and/or modify
+    This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
+    the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
@@ -16,8 +16,7 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
@@ -26,12 +25,36 @@ h3#high, h3#medium, h3#low {
 }
 
 ul#wishlist-high, ul#wishlist-medium, ul#wishlist-low {
-	margin-bottom: 20px;
 	list-style-type: none;
+	margin-bottom: 20px;
+	margin-left: 0;
 }
 
-div.entry ul#wishlist-low:last-child {
+ul#wishlist-high p, ul#wishlist-medium p, ul#wishlist-low p {
 	margin-bottom: 0;
+}
+
+p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
+	display: inline;
+	float: left;
+	font-size: 0.8em;
+	margin-right: 10px;
+}
+
+.wdw_widget p.wishlist-timestamp, .wdw_widget p.wishlist-tags,
+.wdw_widget p.wishlist-section {
+	border: 0 none;
+	display: block;
+	float: none;
+	margin-right: 0;
+}
+
+p.wishlist-description, p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
+	margin-top: 5px;
+}
+
+p.wishlist-description {
+	line-height: 130%;
 }
 
 ul#wishlist-high li.high-stars,
@@ -42,6 +65,7 @@ ul#wishlist-low li.low-stars,
 ul#wishlist-low li.low-faces {
 	line-height: 130%;
 	margin: 0 0 15px 0;
+	overflow: hidden;
 	padding: 0 0 0 55px;
 	text-indent: 0; /* for Default WordPress theme */
 }
@@ -70,10 +94,6 @@ ul#wishlist-low li.low-faces {
 	background: transparent url('images/wdw-faces-low.png') no-repeat 0 0;
 }
 
-.wishlist-description, .wishlist-timestamp {
-	margin: 5px 0;
-}
-
 ul#wishlist-high li.high-stars:before,
 ul#wishlist-high li.high-faces:before,
 ul#wishlist-medium li.medium-stars:before,
@@ -90,4 +110,44 @@ ul#wishlist-medium li.medium-faces:last-child,
 ul#wishlist-low  li.low-stars:last-child,
 ul#wishlist-low li.low-faces:last-child {
 	margin-bottom: 0;
+	overflow: hidden;
 }
+
+.wishlist-timestamp abbr {
+	cursor: help;
+}
+
+a.wishlist-tag {
+	font-size: 0.8em;
+	font-weight: normal;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+}
+
+.wdw_backlink {
+	font-size: 0.8em;
+}
+
+.wdw_warning {
+	background-color: #ffbb00;
+	border: 2px solid #ff0000;
+	color: #000;
+	font-weight: bold;
+	text-align: center;
+	padding: 7px;
+}
+
+/*
+********* Sidebar Area ****************/
+
+.widget-area ul#wishlist-high, .widget-area ul#wishlist-medium,
+.widget-area ul#wishlist-low {
+	margin-left: 0 !important;
+}
+
+.widget-area ul#wishlist-high li, .widget-area ul#wishlist-medium li,
+.widget-area ul#wishlist-low li {
+	background: none!important;
+	padding-left: 0!important;
+}
+
