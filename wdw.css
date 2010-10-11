@@ -1,5 +1,5 @@
 /*
-	WordPress Plugin: Delicious Wishlist for WordPress 2.0.1
+	WordPress Plugin: Delicious Wishlist for WordPress 2.1
 
 	Stylesheet file wdw.css
 
@@ -34,11 +34,11 @@ ul#wishlist-high p, ul#wishlist-medium p, ul#wishlist-low p {
 	margin-bottom: 0;
 }
 
-p.wishlist-timestamp, p.wishlist-tags {
+p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
 	font-size: 0.8em;
 }
 
-p.wishlist-description, p.wishlist-timestamp, p.wishlist-tags {
+p.wishlist-description, p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
 	margin-top: 5px;
 }
 

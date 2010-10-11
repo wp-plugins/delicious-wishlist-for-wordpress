@@ -5,7 +5,7 @@
 	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 2.0.1
+	Version: 2.1
 */
 
 /*
@@ -24,6 +24,10 @@
     You should have received a copy of the GNU General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
+
+/*
+ * TODO: Change IDs for <h3> into classes
+ */
 
 
 /**
@@ -200,6 +204,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '' 
 	$wdw_altfeed_lt   = $wdws['wdw_delicious_alt_feed_lt'];
 	$wdw_tags         = $wdws['wdw_tags'];
 	$wdw_remove_tags  = $wdws['wdw_remove_tags'];
+	$wdw_section      = $wdws['wdw_section'];
 	$wdw_backlink     = $wdws['wdw_backlink'];
 
 	// check if fields' values are blank
@@ -349,6 +354,16 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '' 
 								}
 							}
 
+							/*
+							 * Section for main wishlist Delicious tags
+							 *
+							 * @since 2.1
+							 */
+
+							if ( $wdw_section ) {
+								$wdw_wishlist .= '<p class="wishlist-section">' . __( 'Section:', 'wp-delicious-wishlist') . ' <a class="wishlist-section-link" href="http://www.delicious.com/' . $wdw_nickname . '/' . $wdw_tag_wishlist . '+' . $wdw_tag_high . '">' . $wdw_tag_wishlist . '+' . $wdw_tag_high . '</a></p>';
+							}
+
 						$wdw_wishlist .= '</li>';
 					endforeach;
 				}
@@ -428,6 +443,11 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '' 
 									$wdw_wishlist .= '<p class="wishlist-tags"><span class="wishlist-pre-tags">'.$wdw_pre_tags.'</span> '.$all_tags.'</p>';
 								}
 							}
+
+							if ( $wdw_section ) {
+								$wdw_wishlist .= '<p class="wishlist-section">' . __( 'Section:', 'wp-delicious-wishlist') . ' <a class="wishlist-section-link" href="http://www.delicious.com/' . $wdw_nickname . '/' . $wdw_tag_wishlist . '+' . $wdw_tag_medium . '">' . $wdw_tag_wishlist . '+' . $wdw_tag_medium . '</a></p>';
+							}
+
 						$wdw_wishlist .= '</li>';
 					endforeach;
 				}
@@ -507,6 +527,11 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '' 
 									$wdw_wishlist .= '<p class="wishlist-tags"><span class="wishlist-pre-tags">'.$wdw_pre_tags.'</span> '.$all_tags.'</p>';
 								}
 							}
+
+							if ( $wdw_section ) {
+								$wdw_wishlist .= '<p class="wishlist-section">' . __( 'Section:', 'wp-delicious-wishlist') . ' <a class="wishlist-section-link" href="http://www.delicious.com/' . $wdw_nickname . '/' . $wdw_tag_wishlist . '+' . $wdw_tag_low . '">' . $wdw_tag_wishlist . '+' . $wdw_tag_low . '</a></p>';
+							}
+
 						$wdw_wishlist .= '</li>';
 					endforeach;
 				}
@@ -794,22 +819,6 @@ function wdw_options_page() { ?>
 								</tr>
 								<tr valign="top">
 									<th scope="row">
-										<?php _e('Text before tags', 'wp-delicious-wishlist'); ?>
-									</th>
-									<td>
-										<input type="text" name="wdw_options[wdw_delicious_pre_tags]" value="<?php echo $wdws['wdw_delicious_pre_tags']; ?>">
-									</td>
-								</tr>
-								<tr valign="top" class="alternate">
-									<th scope="row">
-										<?php _e('Text before date', 'wp-delicious-wishlist'); ?>
-									</th>
-									<td>
-										<input type="text" name="wdw_options[wdw_delicious_pre_date]" value="<?php echo $wdws['wdw_delicious_pre_date']; ?>">
-									</td>
-								</tr>
-								<tr valign="top">
-									<th scope="row">
 										<?php _e('Icons style', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
@@ -846,6 +855,30 @@ function wdw_options_page() { ?>
 									</th>
 									<td>
 										<input type="checkbox" value="1" name="wdw_options[wdw_remove_tags]" id="wdw_remove_tags"<?php if($wdws['wdw_remove_tags']) { echo ' checked="true"'; } ?> />
+									</td>
+								</tr>
+								<tr valign="top">
+									<th scope="row">
+										<?php _e('Text before tags', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="text" name="wdw_options[wdw_delicious_pre_tags]" value="<?php echo $wdws['wdw_delicious_pre_tags']; ?>">
+									</td>
+								</tr>
+								<tr valign="top" class="alternate">
+									<th scope="row">
+										<?php _e('Text before date', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="text" name="wdw_options[wdw_delicious_pre_date]" value="<?php echo $wdws['wdw_delicious_pre_date']; ?>">
+									</td>
+								</tr>
+								<tr valign="top">
+									<th scope="row">
+										<?php _e('Display Section', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="checkbox" value="1" name="wdw_options[wdw_section]" id="wdw_css"<?php if($wdws['wdw_section']) { echo ' checked="true"'; } ?> />
 									</td>
 								</tr>
 								<tr valign="top">

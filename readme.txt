@@ -38,7 +38,8 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 
 == Changelog ==
 
-= 2.0.1 =
+= 2.1 =
+* NEW: Added the Section for main Delicious tags which links to the original Delicious tags
 * Better formatting for some messages
 
 = 2.0 =
