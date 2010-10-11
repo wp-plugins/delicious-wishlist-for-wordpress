@@ -39,6 +39,7 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 == Changelog ==
 
 = 2.1 =
+* NEW: Now in the widget the user can put a link to the Wishlist page
 * NEW: Added the Section for main Delicious tags which links to the original Delicious tags
 * Better formatting for some messages
 

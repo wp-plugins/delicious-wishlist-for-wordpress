@@ -179,7 +179,7 @@ function wdw_cache_time( $wdw_cache ) {
  * @since 0.6 Tag section
  */
 
-function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '' ) {
+function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '', $widget_page = '' ) {
 
 	// Let's collect some options from the plugin admin panel
 	$wdws = array();
@@ -538,6 +538,16 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '' 
 			$wdw_wishlist .= '</ul>';
 		}
 
+		if ( ! in_the_loop() ) { // what a useful function! I twittered here: http://bit.ly/cImZne :)
+			if ( $widget_page ) {
+				$wdw_page_id   = get_page_by_title( $widget_page );
+				$wdw_page_link = get_page_link( $wdw_page_id->ID );
+				$wdw_wishlist .= '<p class="wdw-page">';
+				$wdw_wishlist .= sprintf( __( 'Check out %1$smy complete wishlist%2$s', 'wp-delicious-wishlist' ), '<a href="'.$wdw_page_link.'">', '</a>' );
+				$wdw_wishlist .= '</p>';
+			}
+		}
+
 		if($wdw_backlink) {
 			$wdw_wishlist .= '<p class="wdw_backlink">'.__('Created using','wp-delicious-wishlist').' <a href="http://wordpress.org/extend/plugins/delicious-wishlist-for-wordpress/">'.__('Delicious Wishlist for WordPress', 'wp-delicious-wishlist').'</a>.</p>';
 		}
@@ -590,10 +600,11 @@ class WDW_Widget extends WP_Widget {
 		$title = apply_filters('widget_title', $instance['title']);
 		$widget_maxitems = $instance['maxitems'];
 		$widget_description = $instance['desc'];
+		$widget_page = $instance['page'];
 
 		echo $before_widget;
 		if ( $title ) echo $before_title . $title . $after_title;
-		echo wp_delicious_wishlist( $widget_maxitems, $widget_description );
+		echo wp_delicious_wishlist( $widget_maxitems, $widget_description, $widget_page );
 		echo $after_widget;
 	}
 
@@ -602,6 +613,7 @@ class WDW_Widget extends WP_Widget {
 		$instance['title'] = strip_tags($new_instance['title']);
 		$instance['maxitems'] = $new_instance['maxitems'];
 		$instance['desc'] = $new_instance['desc'];
+		$instance['page'] = $new_instance['page'];
 		return $instance;
 	}
 
@@ -609,7 +621,8 @@ class WDW_Widget extends WP_Widget {
 		$defaults = array(
 			'title' => __( 'My Wishlist', 'wp-delicious-wishlist' ),
 			'maxitems' => '1',
-			'desc' => __( 'Yes', 'wp-delicious-wishlist' )
+			'desc' => __( 'Yes', 'wp-delicious-wishlist' ),
+			'page' => ''
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
@@ -638,6 +651,12 @@ class WDW_Widget extends WP_Widget {
 						<?php _e('No', 'wp-delicious-wishlist'); ?>
 					</option>
 				</select>
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id('page'); ?>">
+					<?php _e('Insert the title of your Wishlist page:', 'wp-delicious-wishlist'); ?>
+				</label>
+				<input class="widefat" id="<?php echo $this->get_field_id('page'); ?>" name="<?php echo $this->get_field_name('page'); ?>" type="text" value="<?php echo $instance['page']; ?>" />
 			</p>
 		<?php
 	}
