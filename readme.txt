@@ -1,5 +1,5 @@
 === Delicious Wishlist for WordPress ===
-Contributors: Aldo Latino
+Contributors: aldolat
 Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 Tags: delicious, wishlist, bookmarks
 Requires at least: 2.8
@@ -39,6 +39,7 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 == Changelog ==
 
 = 2.1 =
+* NEW: Now the user can display or not the date, the tags or the "section" (i.e. the two main Delicious tags)
 * NEW: Now in the widget the user can put a link to the Wishlist page
 * NEW: Added the Section for main Delicious tags which links to the original Delicious tags
 * Better formatting for some messages

@@ -206,6 +206,8 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 	$wdw_remove_tags  = $wdws['wdw_remove_tags'];
 	$wdw_section      = $wdws['wdw_section'];
 	$wdw_backlink     = $wdws['wdw_backlink'];
+	$wdw_date         = $wdws['wdw_date'];
+	$wdw_pre_section  = $wdws['wdw_pre_section'];
 
 	// check if fields' values are blank
 	if (
@@ -298,19 +300,22 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 								}
 							}
 
-							// Parse the date into Unix timestamp
-							$unixDate  = strtotime($wdw_item->get_date());
-							// This is the short date
-							$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
-							// This is the long date displayed when the mouse overs on it
-							// $longDate  = strftime(__('%A, %m/%d/%Y at %T', 'wp-delicious-wishlist'), $unixDate).' ('.sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($unixDate)).')';
-							// Let's build the final line
-							// $wdw_wishlist .= '<div class="wishlist-timestamp"><abbr title="'.$longDate.'">'.$briefDate.'</abbr></div>';
-							$wdw_wishlist .= '<p class="wishlist-timestamp">
-								<span class="wishlist-pre-date">' . $wdw_pre_date . '</span>
-								<a class="wishlist-date" rel="nofollow" href="' . $bookmark_url . '"
-								title="' . sprintf( __('See the bookmark &laquo;%s&raquo; on Delicious', 'wp-delicious-wishlist'), $wdw_item->get_title() ) . '">'
-								 . $briefDate . '</a></p>';
+							if ( $wdw_date ) {
+
+								// Parse the date into Unix timestamp
+								$unixDate  = strtotime($wdw_item->get_date());
+								// This is the short date
+								$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
+								// This is the long date displayed when the mouse overs on it
+								// $longDate  = strftime(__('%A, %m/%d/%Y at %T', 'wp-delicious-wishlist'), $unixDate).' ('.sprintf(__('%s ago', 'wp-delicious-wishlist'), human_time_diff($unixDate)).')';
+								// Let's build the final line
+								// $wdw_wishlist .= '<div class="wishlist-timestamp"><abbr title="'.$longDate.'">'.$briefDate.'</abbr></div>';
+								$wdw_wishlist .= '<p class="wishlist-timestamp">
+									<span class="wishlist-pre-date">' . $wdw_pre_date . '</span>
+									<a class="wishlist-date" rel="nofollow" href="' . $bookmark_url . '"
+									title="' . sprintf( __('See the bookmark &laquo;%s&raquo; on Delicious', 'wp-delicious-wishlist'), $wdw_item->get_title() ) . '">'
+									 . $briefDate . '</a></p>';
+							}
 
 							/*
 							 * Tag section
@@ -361,7 +366,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 							 */
 
 							if ( $wdw_section ) {
-								$wdw_wishlist .= '<p class="wishlist-section">' . __( 'Section:', 'wp-delicious-wishlist') . ' <a class="wishlist-section-link" href="http://www.delicious.com/' . $wdw_nickname . '/' . $wdw_tag_wishlist . '+' . $wdw_tag_high . '">' . $wdw_tag_wishlist . '+' . $wdw_tag_high . '</a></p>';
+								$wdw_wishlist .= '<p class="wishlist-section">' . $wdw_pre_section . ' <a class="wishlist-section-link" href="http://www.delicious.com/' . $wdw_nickname . '/' . $wdw_tag_wishlist . '+' . $wdw_tag_high . '">' . $wdw_tag_wishlist . '+' . $wdw_tag_high . '</a></p>';
 							}
 
 						$wdw_wishlist .= '</li>';
@@ -414,13 +419,16 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 								}
 							}
 
-							$unixDate  = strtotime($wdw_item->get_date());
-							$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
-							$wdw_wishlist .= '<p class="wishlist-timestamp">
-								<span class="wishlist-pre-date">' . $wdw_pre_date . '</span>
-								<a class="wishlist-date" rel="nofollow" href="' . $bookmark_url . '"
-								title="' . sprintf( __('See the bookmark &laquo;%s&raquo; on Delicious', 'wp-delicious-wishlist'), $wdw_item->get_title() ) . '">'
-								 . $briefDate . '</a></p>';
+							if ( $wdw_date ) {
+								$unixDate  = strtotime($wdw_item->get_date());
+								$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
+								$wdw_wishlist .= '<p class="wishlist-timestamp">
+									<span class="wishlist-pre-date">' . $wdw_pre_date . '</span>
+									<a class="wishlist-date" rel="nofollow" href="' . $bookmark_url . '"
+									title="' . sprintf( __('See the bookmark &laquo;%s&raquo; on Delicious', 'wp-delicious-wishlist'), $wdw_item->get_title() ) . '">'
+									 . $briefDate . '</a></p>';
+							}
+
 							if($wdw_tags) {
 								$tags = ''; $tags = array(); $tags = $wdw_item->get_item_tags('', 'category');
 								if($tags) {
@@ -445,7 +453,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 							}
 
 							if ( $wdw_section ) {
-								$wdw_wishlist .= '<p class="wishlist-section">' . __( 'Section:', 'wp-delicious-wishlist') . ' <a class="wishlist-section-link" href="http://www.delicious.com/' . $wdw_nickname . '/' . $wdw_tag_wishlist . '+' . $wdw_tag_medium . '">' . $wdw_tag_wishlist . '+' . $wdw_tag_medium . '</a></p>';
+								$wdw_wishlist .= '<p class="wishlist-section">' . $wdw_pre_section . ' <a class="wishlist-section-link" href="http://www.delicious.com/' . $wdw_nickname . '/' . $wdw_tag_wishlist . '+' . $wdw_tag_medium . '">' . $wdw_tag_wishlist . '+' . $wdw_tag_medium . '</a></p>';
 							}
 
 						$wdw_wishlist .= '</li>';
@@ -498,13 +506,16 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 								}
 							}
 
-							$unixDate  = strtotime($wdw_item->get_date());
-							$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
-							$wdw_wishlist .= '<p class="wishlist-timestamp">
-								<span class="wishlist-pre-date">' . $wdw_pre_date . '</span>
-								<a class="wishlist-date" rel="nofollow" href="' . $bookmark_url . '"
-								title="' . sprintf( __('See the bookmark &laquo;%s&raquo; on Delicious', 'wp-delicious-wishlist'), $wdw_item->get_title() ) . '">'
-								 . $briefDate . '</a></p>';
+							if ( $wdw_date ) {
+								$unixDate  = strtotime($wdw_item->get_date());
+								$briefDate = strftime(__('%m/%d/%Y', 'wp-delicious-wishlist'), $unixDate);
+								$wdw_wishlist .= '<p class="wishlist-timestamp">
+									<span class="wishlist-pre-date">' . $wdw_pre_date . '</span>
+									<a class="wishlist-date" rel="nofollow" href="' . $bookmark_url . '"
+									title="' . sprintf( __('See the bookmark &laquo;%s&raquo; on Delicious', 'wp-delicious-wishlist'), $wdw_item->get_title() ) . '">'
+									 . $briefDate . '</a></p>';
+							}
+
 							if($wdw_tags) {
 								$tags = ''; $tags = array(); $tags = $wdw_item->get_item_tags('', 'category');
 								if($tags) {
@@ -529,7 +540,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 							}
 
 							if ( $wdw_section ) {
-								$wdw_wishlist .= '<p class="wishlist-section">' . __( 'Section:', 'wp-delicious-wishlist') . ' <a class="wishlist-section-link" href="http://www.delicious.com/' . $wdw_nickname . '/' . $wdw_tag_wishlist . '+' . $wdw_tag_low . '">' . $wdw_tag_wishlist . '+' . $wdw_tag_low . '</a></p>';
+								$wdw_wishlist .= '<p class="wishlist-section">' . $wdw_pre_section . ' <a class="wishlist-section-link" href="http://www.delicious.com/' . $wdw_nickname . '/' . $wdw_tag_wishlist . '+' . $wdw_tag_low . '">' . $wdw_tag_wishlist . '+' . $wdw_tag_low . '</a></p>';
 							}
 
 						$wdw_wishlist .= '</li>';
@@ -538,8 +549,8 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 			$wdw_wishlist .= '</ul>';
 		}
 
-		if ( ! in_the_loop() ) { // what a useful function! I twittered here: http://bit.ly/cImZne :)
-			if ( $widget_page ) {
+		if ( ! in_the_loop() && $widget_page ) { // what a useful function! I twittered here: http://bit.ly/cImZne :)
+			if ( ! is_page( $widget_page ) ) {
 				$wdw_page_id   = get_page_by_title( $widget_page );
 				$wdw_page_link = get_page_link( $wdw_page_id->ID );
 				$wdw_wishlist .= '<p class="wdw-page">';
@@ -702,19 +713,18 @@ function wdw_options_page() { ?>
 								<?php _e('If you want, you may also visit my wishlist.', 'wp-delicious-wishlist').' &rarr;'; ?>
 							</a>
 						</p>
-						<p style="text-align: center;">
-							<a style="font-weight: bold;" href="http://www.aldolat.it/support/forum/51">
-								<?php _e('Need help?<br />Visit my forums! (You can write in English too)', 'wp-delicious-wishlist').' &rarr;'; ?>
-							</a>
-						</p>
 					</div>
 				</div>
 
 				<div class="postbox">
-					<h3 style="cursor: default;"><?php _e('Give me a feedback!', 'wp-delicious-wishlist'); ?></h3>
+					<h3 style="cursor: default;"><?php _e('Help & feedback', 'wp-delicious-wishlist'); ?></h3>
 					<div class="inside">
 						<p>
-							<?php printf( __( 'Come on %1$smy blog%2$s and drop a comment! It\'ll be very appreciated.', 'wp-delicious-wishlist'), '<a href="http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/">', '</a>' ); ?>
+							<?php _e('<strong>Need help?</strong> <a href="http://www.aldolat.it/support/forum/51">Visit my forums</a> (you can write in English too)', 'wp-delicious-wishlist'); ?>
+						</p>
+						<p>
+							<?php //printf( __('<strong>Want to give a feedback?</strong> Come on %1$smy blog%2$s and drop a comment. It will be very appreciated.', 'wp-delicious-wishlist'), '<a href="http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/">', '</a>' ); ?>
+							<?php _e('<strong>Want to give a feedback?</strong> Come on <a href="http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/">my blog</a> and drop a comment. It will be very appreciated.', 'wp-delicious-wishlist'); ?>
 						</p>
 					</div>
 				</div>
@@ -862,6 +872,22 @@ function wdw_options_page() { ?>
 								</tr>
 								<tr valign="top">
 									<th scope="row">
+										<?php _e('Display date', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="checkbox" value="1" name="wdw_options[wdw_date]" id="wdw_tags"<?php if($wdws['wdw_date']) { echo ' checked="true"'; } ?> />
+									</td>
+								</tr>
+								<tr valign="top" class="alternate">
+									<th scope="row">
+										<?php _e('Text before date', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="text" name="wdw_options[wdw_delicious_pre_date]" value="<?php echo $wdws['wdw_delicious_pre_date']; ?>">
+									</td>
+								</tr>
+								<tr valign="top">
+									<th scope="row">
 										<?php _e('Display tags...', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
@@ -886,14 +912,6 @@ function wdw_options_page() { ?>
 								</tr>
 								<tr valign="top" class="alternate">
 									<th scope="row">
-										<?php _e('Text before date', 'wp-delicious-wishlist'); ?>
-									</th>
-									<td>
-										<input type="text" name="wdw_options[wdw_delicious_pre_date]" value="<?php echo $wdws['wdw_delicious_pre_date']; ?>">
-									</td>
-								</tr>
-								<tr valign="top">
-									<th scope="row">
 										<?php _e('Display Section', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
@@ -902,13 +920,21 @@ function wdw_options_page() { ?>
 								</tr>
 								<tr valign="top">
 									<th scope="row">
+										<?php _e('Text before section', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="text" name="wdw_options[wdw_pre_section]" value="<?php echo $wdws['wdw_pre_section']; ?>">
+									</td>
+								</tr>
+								<tr valign="top" class="alternate">
+									<th scope="row">
 										<?php _e('Use plugin\'s CSS', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
 										<input type="checkbox" value="1" name="wdw_options[wdw_css]" id="wdw_css"<?php if($wdws['wdw_css']) { echo ' checked="true"'; } ?> />
 									</td>
 								</tr>
-								<tr valign="top" class="alternate">
+								<tr valign="top">
 									<th scope="row">
 										<?php _e('Link to the author', 'wp-delicious-wishlist'); ?>
 									</th>
