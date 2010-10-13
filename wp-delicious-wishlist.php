@@ -5,7 +5,7 @@
 	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 2.1
+	Version: 2.1.1
 */
 
 /*
@@ -24,11 +24,6 @@
     You should have received a copy of the GNU General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-
-/*
- * TODO: Change IDs for <h3> into classes
- */
-
 
 /**
  * On plugin activation (or on plugin update), it converts the old options set to only one row in the database
@@ -194,9 +189,9 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 	$wdw_tag_low      = $wdws['wdw_delicious_tag_low'];
 	$wdw_maxitems     = $wdws['wdw_delicious_howmany'];
 	$wdw_truncate     = $wdws['wdw_delicious_truncate'];
-	$wdw_more         = strip_tags( $wdws['wdw_delicious_more'] ); // TODO Verify
-	$wdw_pre_tags     = strip_tags( $wdws['wdw_delicious_pre_tags'] ); // TODO
-	$wdw_pre_date     = strip_tags( $wdws['wdw_delicious_pre_date'] ); // TODO
+	$wdw_more         = $wdws['wdw_delicious_more'];
+	$wdw_pre_tags     = $wdws['wdw_delicious_pre_tags'];
+	$wdw_pre_date     = $wdws['wdw_delicious_pre_date'];
 	$wdw_icons        = $wdws['wdw_delicious_icons'];
 	$wdw_cache        = $wdws['wdw_delicious_cache'];
 	$wdw_altfeed_ht   = $wdws['wdw_delicious_alt_feed_ht'];
@@ -269,14 +264,14 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 			// Build an array of items
 			$wdw_items = $wdw_rss->get_items( 0, $num_items );
 
-			$wdw_wishlist = '<h3 id="high" class="wishlist-title">';
+			$wdw_wishlist = '<h3 class="wishlist-title-high">';
 				if ( $wdw_title_high ) {
 					$wdw_wishlist .= $wdw_title_high;
 				} else {
 					$wdw_wishlist .= __( 'I need', 'wp-delicious-wishlist' );
 				}
 			$wdw_wishlist .= '</h3>';
-			$wdw_wishlist .= '<ul id="wishlist-high">';
+			$wdw_wishlist .= '<ul class="wishlist-high-list">';
 				// If the first (high) section is blank, then let's write "Nothing in this moment"...
 				if (empty($wdw_items)) {
 					$wdw_wishlist .= '<li class="high-'.$wdw_icons.'">'.__('Nothing in this moment', 'wp-delicious-wishlist').'</li>';
@@ -390,14 +385,14 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 			$num_items = $wdw_rss->get_item_quantity($wdw_maxitems);
 			$wdw_items = $wdw_rss->get_items(0, $num_items);
 
-			$wdw_wishlist .= '<h3 id="medium" class="wishlist-title">';
+			$wdw_wishlist .= '<h3 class="wishlist-title-medium">';
 				if ($wdw_title_medium) {
 					$wdw_wishlist .= $wdw_title_medium;
 				} else {
 					$wdw_wishlist .= __('I\'d like', 'wp-delicious-wishlist');
 				}
 			$wdw_wishlist .= '</h3>';
-			$wdw_wishlist .= '<ul id="wishlist-medium">';
+			$wdw_wishlist .= '<ul class="wishlist-medium-list">';
 				if (empty($wdw_items)) {
 					$wdw_wishlist .= '<li class="medium-'.$wdw_icons.'">'.__('Nothing in this moment', 'wp-delicious-wishlist').'</li>';
 				} else {
@@ -477,14 +472,14 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 			$num_items = $wdw_rss->get_item_quantity($wdw_maxitems);
 			$wdw_items = $wdw_rss->get_items(0, $num_items);
 
-			$wdw_wishlist .= '<h3 id="low" class="wishlist-title">';
+			$wdw_wishlist .= '<h3 class="wishlist-title-low">';
 				if ($wdw_title_low) {
 					$wdw_wishlist .= $wdw_title_low;
 				} else {
 					$wdw_wishlist .= __('I like', 'wp-delicious-wishlist');
 				}
 			$wdw_wishlist .= '</h3>';
-			$wdw_wishlist .= '<ul id="wishlist-low">';
+			$wdw_wishlist .= '<ul class="wishlist-low-list">';
 				if (empty($wdw_items)) {
 					$wdw_wishlist .= '<li class="low-'.$wdw_icons.'">'.__('Nothing in this moment', 'wp-delicious-wishlist').'</li>';
 				} else {
@@ -554,7 +549,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 				$wdw_page_id   = get_page_by_title( $widget_page );
 				$wdw_page_link = get_page_link( $wdw_page_id->ID );
 				$wdw_wishlist .= '<p class="wdw-page">';
-				$wdw_wishlist .= sprintf( __( 'Check out %1$smy complete wishlist%2$s', 'wp-delicious-wishlist' ), '<a href="'.$wdw_page_link.'">', '</a>' );
+				$wdw_wishlist .= sprintf( __( 'Check out %1$smy complete list%2$s', 'wp-delicious-wishlist' ), '<a href="'.$wdw_page_link.'">', '</a>' );
 				$wdw_wishlist .= '</p>';
 			}
 		}
