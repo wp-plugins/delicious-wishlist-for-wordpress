@@ -1,13 +1,13 @@
 /*
-	WordPress 2.8 Plugin: WordPress Delicious Wishlist 0.1
+	WordPress Plugin: Delicious Wishlist for WordPress 2.1.1
 
 	Stylesheet file wdw.css
 
-	Copyright 2009  Aldo Latino  (email : aldolat@gmail.com)
+	Copyright (C) 2009, 2010  Aldo Latino  (email : aldolat@gmail.com)
 
-    This program is free software; you can redistribute it and/or modify
+    This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
+    the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
@@ -16,78 +16,139 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-h3#high, h3#medium, h3#low {
+h3.wishlist-title-high, h3.wishlist-title-medium, h3.wishlist-title-low {
 	margin-bottom: 15px;
 }
 
-ul#wishlist-high, ul#wishlist-medium, ul#wishlist-low {
-	margin-bottom: 20px;
+ul.wishlist-high-list, ul.wishlist-medium-list, ul.wishlist-low-list {
 	list-style-type: none;
+	margin-bottom: 20px;
+	margin-left: 0;
 }
 
-div.entry ul#wishlist-low:last-child {
-	margin-bottom: 0;
+ul.wishlist-high-list p, ul.wishlist-medium-list p, ul.wishlist-low-list p {
+	margin-bottom: 0 !important;
 }
 
-ul#wishlist-high li.high-stars,
-ul#wishlist-high li.high-faces,
-ul#wishlist-medium li.medium-stars,
-ul#wishlist-medium li.medium-faces,
-ul#wishlist-low li.low-stars,
-ul#wishlist-low li.low-faces {
+p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
+	display: inline;
+	float: left;
+	font-size: 0.8em;
+	margin-right: 10px;
+}
+
+.wdw_widget p.wishlist-timestamp, .wdw_widget p.wishlist-tags,
+.wdw_widget p.wishlist-section {
+	border: 0 none;
+	display: block;
+	float: none;
+	margin-right: 0;
+}
+
+p.wishlist-description, p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
+	line-height: 120%;
+	margin-top: 5px;
+}
+
+p.wishlist-description {
+	line-height: 130%;
+}
+
+ul.wishlist-high-list li.high-stars,
+ul.wishlist-high-list li.high-faces,
+ul.wishlist-medium-list li.medium-stars,
+ul.wishlist-medium-list li.medium-faces,
+ul.wishlist-low-list li.low-stars,
+ul.wishlist-low-list li.low-faces {
 	line-height: 130%;
 	margin: 0 0 15px 0;
+	overflow: hidden;
 	padding: 0 0 0 55px;
 	text-indent: 0; /* for Default WordPress theme */
 }
 
-ul#wishlist-high li.high-stars {
-	background: transparent url('images/wdw-stars-high.png') no-repeat 0 0;
+ul.wishlist-high-list li.high-stars {
+	background: transparent url('images/wdw-stars-high.png') no-repeat 0 1px;
 }
 
-ul#wishlist-high li.high-faces {
-	background: transparent url('images/wdw-faces-high.png') no-repeat 0 0;
+ul.wishlist-high-list li.high-faces {
+	background: transparent url('images/wdw-faces-high.png') no-repeat 0 2px;
 }
 
-ul#wishlist-medium li.medium-stars {
-	background: transparent url('images/wdw-stars-medium.png') no-repeat 0 0;
+ul.wishlist-medium-list li.medium-stars {
+	background: transparent url('images/wdw-stars-medium.png') no-repeat 0 1px;
 }
 
-ul#wishlist-medium li.medium-faces {
-	background: transparent url('images/wdw-faces-medium.png') no-repeat 0 0;
+ul.wishlist-medium-list li.medium-faces {
+	background: transparent url('images/wdw-faces-medium.png') no-repeat 0 2px;
 }
 
-ul#wishlist-low li.low-stars {
-	background: transparent url('images/wdw-stars-low.png') no-repeat 0 0;
+ul.wishlist-low-list li.low-stars {
+	background: transparent url('images/wdw-stars-low.png') no-repeat 0 1px;
 }
 
-ul#wishlist-low li.low-faces {
-	background: transparent url('images/wdw-faces-low.png') no-repeat 0 0;
+ul.wishlist-low-list li.low-faces {
+	background: transparent url('images/wdw-faces-low.png') no-repeat 0 2px;
 }
 
-.wishlist-description, .wishlist-timestamp {
-	margin: 5px 0;
-}
-
-ul#wishlist-high li.high-stars:before,
-ul#wishlist-high li.high-faces:before,
-ul#wishlist-medium li.medium-stars:before,
-ul#wishlist-medium li.medium-faces:before,
-ul#wishlist-low li.low-stars:before,
-ul#wishlist-low li.low-faces:before { /* for Default WordPress theme */
+ul.wishlist-high-list li.high-stars:before,
+ul.wishlist-high-list li.high-faces:before,
+ul.wishlist-medium-list li.medium-stars:before,
+ul.wishlist-medium-list li.medium-faces:before,
+ul.wishlist-low-list li.low-stars:before,
+ul.wishlist-low-list li.low-faces:before { /* for Default WordPress theme */
 	content: "";
 }
 
-ul#wishlist-high li.high-stars:last-child,
-ul#wishlist-high li.high-faces:last-child,
-ul#wishlist-medium  li.medium-stars:last-child,
-ul#wishlist-medium li.medium-faces:last-child,
-ul#wishlist-low  li.low-stars:last-child,
-ul#wishlist-low li.low-faces:last-child {
+ul.wishlist-high-list li.high-stars:last-child,
+ul.wishlist-high-list li.high-faces:last-child,
+ul.wishlist-medium-list  li.medium-stars:last-child,
+ul.wishlist-medium-list li.medium-faces:last-child,
+ul.wishlist-low-list  li.low-stars:last-child,
+ul.wishlist-low-list li.low-faces:last-child {
 	margin-bottom: 0;
+	overflow: hidden;
 }
+
+.wishlist-timestamp abbr {
+	cursor: help;
+}
+
+a.wishlist-tag {
+	font-size: 0.8em;
+	font-weight: normal;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+}
+
+.wdw_backlink {
+	font-size: 0.8em;
+}
+
+.wdw_warning {
+	background-color: #ffbb00;
+	border: 2px solid #ff0000;
+	color: #000;
+	font-weight: bold;
+	text-align: center;
+	padding: 7px;
+}
+
+/*
+********* Sidebar Area ****************/
+
+.widget-area ul.wishlist-high-list, .widget-area ul.wishlist-medium-list,
+.widget-area ul.wishlist-low-list {
+	margin-left: 0 !important;
+}
+
+.widget-area ul.wishlist-high-list li, .widget-area ul.wishlist-medium-list li,
+.widget-area ul.wishlist-low-list li {
+	background: none!important;
+	padding-left: 0!important;
+}
+
