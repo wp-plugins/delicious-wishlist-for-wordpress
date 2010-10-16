@@ -38,6 +38,11 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 
 == Changelog ==
 
+= 2.2 =
+
+* NEW: Added the count for total items in every title of the widget
+* Other minor changes
+
 = 2.1.1 =
 
 * FIX: Changed ids into classes, to avoid duplicated ids when viewing the main wishlist page while the wishlist widget is active
