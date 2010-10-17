@@ -61,6 +61,10 @@ p.wishlist-description {
 	line-height: 130%;
 }
 
+.wdw_widget p.wishlist-description {
+	font-style: italic;
+}
+
 ul.wishlist-high-list li.high-stars,
 ul.wishlist-high-list li.high-faces,
 ul.wishlist-medium-list li.medium-stars,

@@ -174,7 +174,7 @@ function wdw_cache_time( $wdw_cache ) {
  * @since 0.6 Tag section
  */
 
-function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '', $widget_page = '' ) {
+function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = false, $widget_page = '', $widget_count = true ) {
 
 	// Let's collect some options from the plugin admin panel
 	$wdws = array();
@@ -268,7 +268,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 
 			$wdw_wishlist = '<h3 class="wishlist-title-high">';
 				// if outside the loop (in the widget), add the number of total items for the section
-				if ( ! in_the_loop() ) {
+				if ( ! in_the_loop() && $widget_count ) {
 					$qty_for_widget = sprintf( _n( ' <span class="wdw-qty">(%s item in total)</span>', ' <span class="wdw-qty">(%s items in total)</span>', $num_items, 'wp-delicious-wishlist' ), $num_items );
 				}
 				if ( $wdw_title_high ) {
@@ -289,9 +289,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 							$wdw_wishlist .= '<p class="wishlist-bookmark-title"><a class="wishlist-link" href="'.$wdw_item->get_permalink().'" title="'.$wdw_item->get_title().'">'.$wdw_item->get_title().'</a></p>';
 
 							// if in the widget we do not want any description, we do not print it
-							if ( $widget_description == 'no' ) {
-								$desc = '';
-							} else {
+							if ( in_the_loop() || $widget_description ) {
 								$desc = $wdw_item->get_description();
 								if ( $desc ) {
 									if ( $wdw_truncate != 0 && strlen( $desc ) > $wdw_truncate ) {
@@ -397,7 +395,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 			}
 
 			$wdw_wishlist .= '<h3 class="wishlist-title-medium">';
-				if ( ! in_the_loop() ) {
+				if ( ! in_the_loop() && $widget_count ) {
 					$qty_for_widget = sprintf( _n( ' <span class="wdw-qty">(%s item in total)</span>', ' <span class="wdw-qty">(%s items in total)</span>', $num_items, 'wp-delicious-wishlist' ), $num_items );
 				}
 				if ($wdw_title_medium) {
@@ -415,9 +413,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 						$wdw_wishlist .= '<li class="medium-'.$wdw_icons.'">';
 							$wdw_wishlist .= '<p class="wishlist-bookmark-title"><a class="wishlist-link" href="'.$wdw_item->get_permalink().'" title="'.$wdw_item->get_title().'">'.$wdw_item->get_title().'</a></p>';
 
-							if ( $widget_description == 'no' ) {
-								$desc = '';
-							} else {
+							if ( in_the_loop() || $widget_description ) {
 								$desc = $wdw_item->get_description();
 								if ( $desc ) {
 									if ( $wdw_truncate != 0 && strlen( $desc ) > $wdw_truncate ) {
@@ -491,7 +487,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 			}
 
 			$wdw_wishlist .= '<h3 class="wishlist-title-low">';
-				if ( ! in_the_loop() ) {
+				if ( ! in_the_loop() && $widget_count ) {
 					$qty_for_widget = sprintf( _n( ' <span class="wdw-qty">(%s item in total)</span>', ' <span class="wdw-qty">(%s items in total)</span>', $num_items, 'wp-delicious-wishlist' ), $num_items );
 				}
 				if ($wdw_title_low) {
@@ -509,9 +505,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = '',
 						$wdw_wishlist .= '<li class="low-'.$wdw_icons.'">';
 							$wdw_wishlist .= '<p class="wishlist-bookmark-title"><a class="wishlist-link" href="'.$wdw_item->get_permalink().'" title="'.$wdw_item->get_title().'">'.$wdw_item->get_title().'</a></p>';
 
-							if ( $widget_description == 'no' ) {
-								$desc = '';
-							} else {
+							if ( in_the_loop() || $widget_description ) {
 								$desc = $wdw_item->get_description();
 								if ( $desc ) {
 									if ( $wdw_truncate != 0 && strlen( $desc ) > $wdw_truncate ) {
@@ -626,21 +620,23 @@ class WDW_Widget extends WP_Widget {
 
 		$title = apply_filters('widget_title', $instance['title']);
 		$widget_maxitems = $instance['maxitems'];
-		$widget_description = $instance['desc'];
+		$widget_description = isset( $instance['desc'] ) ? $instance['desc'] : false;
 		$widget_page = $instance['page'];
+		$widget_count = isset( $instance['count'] ) ? $instance['count'] : false;
 
 		echo $before_widget;
 		if ( $title ) echo $before_title . $title . $after_title;
-		echo wp_delicious_wishlist( $widget_maxitems, $widget_description, $widget_page );
+		echo wp_delicious_wishlist( $widget_maxitems, $widget_description, $widget_page, $widget_count );
 		echo $after_widget;
 	}
 
 	function update($new_instance, $old_instance) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['maxitems'] = $new_instance['maxitems'];
+		$instance['maxitems'] = strip_tags($new_instance['maxitems']);
 		$instance['desc'] = $new_instance['desc'];
-		$instance['page'] = $new_instance['page'];
+		$instance['page'] = strip_tags($new_instance['page']);
+		$instance['count'] = $new_instance['count'];
 		return $instance;
 	}
 
@@ -648,8 +644,9 @@ class WDW_Widget extends WP_Widget {
 		$defaults = array(
 			'title' => __( 'My Wishlist', 'wp-delicious-wishlist' ),
 			'maxitems' => '1',
-			'desc' => __( 'Yes', 'wp-delicious-wishlist' ),
-			'page' => ''
+			'desc' => false,
+			'page' => '',
+			'count'=> true
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
@@ -666,28 +663,27 @@ class WDW_Widget extends WP_Widget {
 				<input class="widefat" id="<?php echo $this->get_field_id('maxitems'); ?>" name="<?php echo $this->get_field_name('maxitems'); ?>" type="text" value="<?php echo $instance['maxitems']; ?>" />
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'desc' ); ?>">
-					<?php _e('Display description:', 'wp-delicious-wishlist'); ?>
-				</label>
-				<select class="widefat" id="<?php echo $this->get_field_id( 'desc' ); ?>" name="<?php echo $this->get_field_name( 'desc' ); ?>">
-					<?php $wdw_desc = $instance['desc']; ?>
-					<option <?php selected('yes', $wdw_desc); ?> value="yes">
-						<?php _e('Yes', 'wp-delicious-wishlist'); ?>
-					</option>
-					<option <?php selected('no', $wdw_desc); ?> value="no">
-						<?php _e('No', 'wp-delicious-wishlist'); ?>
-					</option>
-				</select>
-			</p>
-			<p>
 				<label for="<?php echo $this->get_field_id('page'); ?>">
 					<?php _e('Insert the title of your Wishlist page:', 'wp-delicious-wishlist'); ?>
 				</label>
 				<input class="widefat" id="<?php echo $this->get_field_id('page'); ?>" name="<?php echo $this->get_field_name('page'); ?>" type="text" value="<?php echo $instance['page']; ?>" />
 			</p>
+			<p>
+				<input class="checkbox" type="checkbox" <?php if( $instance['desc'] ) { echo 'checked="checked"'; } ?> value="1" id="<?php echo $this->get_field_id( 'desc' ); ?>" name="<?php echo $this->get_field_name( 'desc' ); ?>" />
+				<label for="<?php echo $this->get_field_id( 'desc' ); ?>">
+					<?php _e('Display description?', 'wp-delicious-wishlist'); ?>
+				</label>
+			</p>
+			<p>
+				<input class="checkbox" type="checkbox" <?php if( $instance['count'] ) { echo 'checked="checked"'; } ?> value="2" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" />
+				<label for="<?php echo $this->get_field_id( 'count' ); ?>">
+					<?php _e('Display the total number of items in titles?', 'wp-delicious-wishlist'); ?>
+				</label>
+			</p>
 		<?php
 	}
 }
+
 
 /**
  * Load the options page
