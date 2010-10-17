@@ -968,9 +968,9 @@ function wdw_options_page() { ?>
 						<h3 style="cursor: default;"><?php _e('Alternative feed source', 'wp-delicious-wishlist'); ?></h3>
 						<div class="inside">
 							<p>
-								<?php _e('If you experience problems in fetching your feeds directly from Delicious, '.
-								'you can use another service that fetches your feeds for you (such as FeedBurner or Yahoo! Pipes or other services). '.
-								'Enter here the alternative feed URLs, that this plugin will use instead of Delicious\' feeds.', 'wp-delicious-wishlist'); ?>
+								<?php _e('If you experience problems in fetching your feeds directly from Delicious,
+								you can use another service that fetches your feeds for you (such as FeedBurner or Yahoo! Pipes or other services).
+								Enter here the alternative feed URLs, that this plugin will use instead of Delicious\' feeds.', 'wp-delicious-wishlist'); ?>
 							</p>
 
 							<table class="widefat" style="clear: none;">
@@ -1020,36 +1020,36 @@ function wdw_options_page() { ?>
 						<h4><?php _e('Installation', 'wp-delicious-wishlist'); ?></h4>
 
 						<p>
-							<?php _e('This plugin allows you to publish in your blog a wishlist using your Delicious bookmarks. '.
-							'In order to make this, when you visit a web page with something you like, tag that page with two different bookmarks: '.
-							'<code>wishlist</code> and, if it is very important, <code>***</code> (three stars). '.
-							'Then, when you visit a page with something less important, you could use <code>wishlist</code> and <code>**</code> (two stars), '.
-							'and finally for a page with something even less important, you could use <code>wishlist</code> and <code>*</code> (one star). '.
-							'It\'s not mandatory to use these exact tags: you can choose your own tags, but consider that you have to bookmark '.
-							'a page with at least two different tags: one general to collect all your bookmarks relative to your wishlist, '.
-							'and another to mark that page depending on the importance of the stuff for you.<br /><br />'.
-							'When you are done with an item (you have bought it or someone gave it to you as a gift), '.
-							'you can edit that bookmark on Delicious and remove the star(s), leaving only the main tag (e.g., <code>wishlist</code>), '.
-							'so you can maintain in Delicious an archive of all desired items.<br /><br />'.
-							'To start, fill in the fields in the form above.', 'wp-delicious-wishlist'); ?>
+							<?php _e('This plugin allows you to publish in your blog a wishlist using your Delicious bookmarks.
+							In order to make this, when you visit a web page with something you like, tag that page with two different bookmarks:
+							<code>wishlist</code> and, if it is very important, <code>***</code> (three stars).
+							Then, when you visit a page with something less important, you could use <code>wishlist</code> and <code>**</code> (two stars),
+							and finally for a page with something even less important, you could use <code>wishlist</code> and <code>*</code> (one star).
+							It\'s not mandatory to use these exact tags: you can choose your own tags, but consider that you have to bookmark
+							a page with at least two different tags: one general to collect all your bookmarks relative to your wishlist,
+							and another to mark that page depending on the importance of the stuff for you.<br /><br />
+							When you are done with an item (you have bought it or someone gave it to you as a gift),
+							you can edit that bookmark on Delicious and remove the star(s), leaving only the main tag (e.g., <code>wishlist</code>),
+							so you can maintain in Delicious an archive of all desired items.<br /><br />
+							To start, fill in the fields in the form above.', 'wp-delicious-wishlist'); ?>
 							<br />
 							<?php _e('<strong>All required fields are marked with an asterisk [*].</strong> The values are not case sensitive.', 'wp-delicious-wishlist'); ?>
 						</p>
 
 						<p>
-							<?php printf( __( 'When you are done filling those fields, clic on the "Save Changes" button, '.
-							'create a new page, and give it a title you want. '.
-							'In the body of the page, paste the following shortcode: %s', 'wp-delicious-wishlist'), '<br /><br /><code style="font-size: 1.3em;">[my-delicious-wishlist]</code><br /><br />' ); ?>
+							<?php printf( __( 'When you are done filling those fields, clic on the "Save Changes" button,
+							create a new page, and give it a title you want.
+							In the body of the page, paste the following shortcode: %s', 'wp-delicious-wishlist'), '<br /><br /><code style="font-size: 1.3em;">[my-delicious-wishlist]</code><br /><br />' ); ?>
 							<?php _e('You can add some text before and/or after the shortcode. Publish the page and visit it on your blog. You are done!', 'wp-delicious-wishlist'); ?>
 						</p>
 
 						<h4><?php _e('Changing the style of the Wishlist page', 'wp-delicious-wishlist'); ?></h4>
 
 						<p>
-							<?php _e('The page is stylized using the css file included in the plugin directory. '.
-							'If you want to restyle the page, you can put a css file in the root directory of the theme you are using, '.
-							'create your styles, and name it <code>wdw.css</code>. '.
-							'All future versions of this plugin will load only your own css file.', 'wp-delicious-wishlist'); ?>
+							<?php _e('The page is stylized using the css file included in the plugin directory.
+							If you want to restyle the page, you can put a css file in the root directory of the theme you are using,
+							create your styles, and name it <code>wdw.css</code>.
+							All future versions of this plugin will load only your own css file.', 'wp-delicious-wishlist'); ?>
 						</p>
 
 					</div>
