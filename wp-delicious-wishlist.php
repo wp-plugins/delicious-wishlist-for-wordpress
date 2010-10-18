@@ -278,9 +278,9 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 				}
 			$wdw_wishlist .= '</h3>';
 			$wdw_wishlist .= '<ul class="wishlist-high-list">';
-				// If the first (high) section is blank, then let's write "Nothing in this moment"...
+				// If the first (high) section is blank, then let's write "Nothing in this moment."...
 				if (empty($wdw_items)) {
-					$wdw_wishlist .= '<li class="high-'.$wdw_icons.'">'.__('Nothing in this moment', 'wp-delicious-wishlist').'</li>';
+					$wdw_wishlist .= '<li class="high-'.$wdw_icons.'">'.__('Nothing in this moment.', 'wp-delicious-wishlist').'</li>';
 				} else {
 					// ... else start the loop
 					foreach ( $wdw_items as $wdw_item ) :
@@ -406,7 +406,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 			$wdw_wishlist .= '</h3>';
 			$wdw_wishlist .= '<ul class="wishlist-medium-list">';
 				if (empty($wdw_items)) {
-					$wdw_wishlist .= '<li class="medium-'.$wdw_icons.'">'.__('Nothing in this moment', 'wp-delicious-wishlist').'</li>';
+					$wdw_wishlist .= '<li class="medium-'.$wdw_icons.'">'.__('Nothing in this moment.', 'wp-delicious-wishlist').'</li>';
 				} else {
 					foreach ( $wdw_items as $wdw_item ) :
 						$bookmark_url = $wdw_item->get_id();
@@ -498,7 +498,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 			$wdw_wishlist .= '</h3>';
 			$wdw_wishlist .= '<ul class="wishlist-low-list">';
 				if (empty($wdw_items)) {
-					$wdw_wishlist .= '<li class="low-'.$wdw_icons.'">'.__('Nothing in this moment', 'wp-delicious-wishlist').'</li>';
+					$wdw_wishlist .= '<li class="low-'.$wdw_icons.'">'.__('Nothing in this moment.', 'wp-delicious-wishlist').'</li>';
 				} else {
 					foreach ( $wdw_items as $wdw_item ) :
 						$bookmark_url = $wdw_item->get_id();
@@ -579,17 +579,6 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 	return $wdw_wishlist;
 }
 add_shortcode('my-delicious-wishlist', 'wp_delicious_wishlist');
-
-
-/**
- * Make plugin available for i18n
- * Translations must be archived in the /languages/ directory
- *
- * @since 0.1
- */
-
-setlocale(LC_ALL, get_locale().'.UTF8');
-load_plugin_textdomain('wp-delicious-wishlist', false, 'delicious-wishlist-for-wordpress/languages');
 
 
 /**
@@ -699,10 +688,7 @@ function wdw_options_page() { ?>
 		<h2><?php _e('Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist'); ?></h2>
 
 		<p>
-			<?php
-				printf(__('%1$srequired fields%2$s','wp-delicious-wishlist'), '<strong>[*] = ', '.</strong> &bull;');
-				printf(__('The User Guide is %1$sbelow%2$s.','wp-delicious-wishlist'), '<a href="#user-guide">', '</a>');
-			?>
+			<?php printf( __( '<strong>[*] = Required fields.</strong> - The User Guide is %1$sbelow%2$s.', 'wp-delicious-wishlist' ), '<a href="#user-guide">', '</a>' ); ?>
 		</p>
 
 		<div class="clear" id="poststuff" style="max-width: 800px;">
@@ -1059,16 +1045,30 @@ function wdw_options_page() { ?>
 
 function wp_delicious_wishlist_stylesheets() {
 	$wdws = array();
-	$wdws = get_option('wdw_options');
+	$wdws = get_option( 'wdw_options' );
 	$wdw_css = $wdws['wdw_css'];
-	if($wdw_css) {
-		if(file_exists(TEMPLATEPATH.'/wdw.css')) {
-			wp_enqueue_style('wp-delicious-wishlist', get_stylesheet_directory_uri().'/wdw.css', false, false, 'all');
+	if( $wdw_css ) {
+		if( file_exists( TEMPLATEPATH.'/wdw.css' ) ) {
+			wp_enqueue_style( 'wp-delicious-wishlist', get_stylesheet_directory_uri() . '/wdw.css', false, false, 'all' );
 		} else {
-			wp_enqueue_style('wp-delicious-wishlist', plugins_url('delicious-wishlist-for-wordpress/wdw.css'), false, false, 'all');
+			wp_enqueue_style( 'wp-delicious-wishlist', plugins_url( 'delicious-wishlist-for-wordpress/wdw.css' ), false, false, 'all' );
 		}
 	}
 }
-add_action('wp_print_styles', 'wp_delicious_wishlist_stylesheets');
+add_action( 'wp_print_styles', 'wp_delicious_wishlist_stylesheets' );
 
-/***** CODE IS POETRY *****/
+
+/**
+ * Make plugin available for i18n
+ * Translations must be archived in the /languages/ directory
+ *
+ * @since 0.1
+ */
+
+setlocale(LC_ALL, get_locale().'.UTF8');
+load_plugin_textdomain('wp-delicious-wishlist', false, 'delicious-wishlist-for-wordpress/languages');
+
+
+/***********************************************************************
+ *                            CODE IS POETRY
+ **********************************************************************/
