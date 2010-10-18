@@ -269,7 +269,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 			$wdw_wishlist = '<h3 class="wishlist-title-high">';
 				// if outside the loop (in the widget), add the number of total items for the section
 				if ( ! in_the_loop() && $widget_count ) {
-					$qty_for_widget = sprintf( _n( ' <span class="wdw-qty">(%s item in total)</span>', ' <span class="wdw-qty">(%s items in total)</span>', $num_items, 'wp-delicious-wishlist' ), $num_items );
+					$qty_for_widget = sprintf( _n( ' <span class="wdw-qty">(%s item)</span>', ' <span class="wdw-qty">(%s items)</span>', $num_items, 'wp-delicious-wishlist' ), $num_items );
 				}
 				if ( $wdw_title_high ) {
 					$wdw_wishlist .= $wdw_title_high . $qty_for_widget;
@@ -396,7 +396,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 
 			$wdw_wishlist .= '<h3 class="wishlist-title-medium">';
 				if ( ! in_the_loop() && $widget_count ) {
-					$qty_for_widget = sprintf( _n( ' <span class="wdw-qty">(%s item in total)</span>', ' <span class="wdw-qty">(%s items in total)</span>', $num_items, 'wp-delicious-wishlist' ), $num_items );
+					$qty_for_widget = sprintf( _n( ' <span class="wdw-qty">(%s item)</span>', ' <span class="wdw-qty">(%s items)</span>', $num_items, 'wp-delicious-wishlist' ), $num_items );
 				}
 				if ($wdw_title_medium) {
 					$wdw_wishlist .= $wdw_title_medium . $qty_for_widget;
@@ -488,7 +488,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 
 			$wdw_wishlist .= '<h3 class="wishlist-title-low">';
 				if ( ! in_the_loop() && $widget_count ) {
-					$qty_for_widget = sprintf( _n( ' <span class="wdw-qty">(%s item in total)</span>', ' <span class="wdw-qty">(%s items in total)</span>', $num_items, 'wp-delicious-wishlist' ), $num_items );
+					$qty_for_widget = sprintf( _n( ' <span class="wdw-qty">(%s item)</span>', ' <span class="wdw-qty">(%s items)</span>', $num_items, 'wp-delicious-wishlist' ), $num_items );
 				}
 				if ($wdw_title_low) {
 					$wdw_wishlist .= $wdw_title_low . $qty_for_widget;

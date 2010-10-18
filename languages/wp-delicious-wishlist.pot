@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Delicious Wishlist for WordPress 2.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-delicious-wishlist\n"
-"POT-Creation-Date: 2010-10-18 07:26+0200\n"
+"POT-Creation-Date: 2010-10-18 11:10+0200\n"
 "PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,8 +48,8 @@ msgstr ""
 #: wp-delicious-wishlist.php:272 wp-delicious-wishlist.php:399
 #: wp-delicious-wishlist.php:491
 #, php-format
-msgid " <span class=\"wdw-qty\">(%s item in total)</span>"
-msgid_plural " <span class=\"wdw-qty\">(%s items in total)</span>"
+msgid " <span class=\"wdw-qty\">(%s item)</span>"
+msgid_plural " <span class=\"wdw-qty\">(%s items)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Created using"
 msgstr ""
 
-#. #-#-#-#-#  wp-delicious-wishlist_new.pot (Delicious Wishlist for WordPress 2.2)  #-#-#-#-#
+#. #-#-#-#-#  wp-delicious-wishlist.pot (Delicious Wishlist for WordPress 2.2)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: wp-delicious-wishlist.php:573
 msgid "Delicious Wishlist for WordPress"
@@ -411,4 +411,22 @@ msgid ""
 "you want to restyle the page, you can put a css file in the root directory "
 "of the theme you are using, create your styles, and name it <code>wdw.css</"
 "code>. All future versions of this plugin will load only your own css file."
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid ""
+"http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-"
+"wordpress/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Publish a wishlist using your Delicious bookmarks"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Aldo Latino"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.aldolat.it/"
 msgstr ""

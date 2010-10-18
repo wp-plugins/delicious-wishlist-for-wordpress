@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Delicious Wishlist\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-delicious-wishlist\n"
-"POT-Creation-Date: 2010-10-18 07:26+0200\n"
+"POT-Creation-Date: 2010-10-18 11:10+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Aldo Latino <aldolat@gmail.com>\n"
 "Language-Team: Aldo Latino <aldolat@gmail.com>\n"
@@ -46,10 +46,10 @@ msgstr "<p>Impossibile recuperare il primo feed. Questo è il problema:%s"
 #: wp-delicious-wishlist.php:399
 #: wp-delicious-wishlist.php:491
 #, php-format
-msgid " <span class=\"wdw-qty\">(%s item in total)</span>"
-msgid_plural " <span class=\"wdw-qty\">(%s items in total)</span>"
-msgstr[0] " <span class=\"wdw-qty\">(%s voce in totale)</span>"
-msgstr[1] " <span class=\"wdw-qty\">(%s voci in totale)</span>"
+msgid " <span class=\"wdw-qty\">(%s item)</span>"
+msgid_plural " <span class=\"wdw-qty\">(%s items)</span>"
+msgstr[0] " <span class=\"wdw-qty\">(%s voce)</span>"
+msgstr[1] " <span class=\"wdw-qty\">(%s voci)</span>"
 
 #: wp-delicious-wishlist.php:277
 msgid "I need"
@@ -123,7 +123,7 @@ msgid "Created using"
 msgstr "Creato con"
 
 # This is the name of the plugin and appears in the backlink at the bottom of the generated page. Leave it in English, please.
-#. #-#-#-#-#  wp-delicious-wishlist_new.pot (Delicious Wishlist for WordPress 2.2)  #-#-#-#-#
+#. #-#-#-#-#  wp-delicious-wishlist.pot (Delicious Wishlist for WordPress 2.2)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: wp-delicious-wishlist.php:573
 msgid "Delicious Wishlist for WordPress"
@@ -373,16 +373,19 @@ msgstr "Cambiare lo stile della pagina Wishlist"
 msgid "The page is stylized using the css file included in the plugin directory. If you want to restyle the page, you can put a css file in the root directory of the theme you are using, create your styles, and name it <code>wdw.css</code>. All future versions of this plugin will load only your own css file."
 msgstr "La pagina viene formattata usando il file css incluso nella directory del plugin. Se vuoi presentare la pagina in modo diverso, puoi creare un file css nella directory principale del tema che stai usando, crearne gli stili e dargli il nome <code>wdw.css</code>. Tutte le prossime versioni di questo plugin caricheranno soltanto il tuo file css."
 
-#~ msgid "%1$srequired fields%2$s"
-#~ msgstr "%1$scampi richiesti%2$s"
-#~ msgid "Yes"
-#~ msgstr "Sì"
-#~ msgid "No"
-#~ msgstr "No"
-#~ msgid "Section:"
-#~ msgstr "Sezione:"
-#~ msgid "and to"
-#~ msgstr "e a"
-#~ msgid "for their great idea behind this work."
-#~ msgstr "per la loro grande idea dietro questo lavoro."
+#. Plugin URI of the plugin/theme
+msgid "http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/"
+msgstr "http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/"
+
+#. Description of the plugin/theme
+msgid "Publish a wishlist using your Delicious bookmarks"
+msgstr "Pubblica una lista dei desideri usando i tuoi segnalibri su Delicious"
+
+#. Author of the plugin/theme
+msgid "Aldo Latino"
+msgstr "Aldo Latino"
+
+#. Author URI of the plugin/theme
+msgid "http://www.aldolat.it/"
+msgstr "http://www.aldolat.it/"
 

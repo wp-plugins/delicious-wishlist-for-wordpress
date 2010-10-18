@@ -34,7 +34,8 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 == Screenshots ==
 
 1. The settings panel of the plugin
-2. The rendered wishlist page
+2. The settings for the widget
+3. The rendered wishlist page
 
 == Changelog ==
 
