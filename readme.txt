@@ -39,6 +39,10 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 
 == Changelog ==
 
+= 2.2.1 =
+
+* Minor change: use of the checked() function to declare checked a checkbox
+
 = 2.2 =
 
 * NEW: Added the count for total items in every title of the widget

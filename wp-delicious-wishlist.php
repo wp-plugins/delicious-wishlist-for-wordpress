@@ -5,7 +5,7 @@
 	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 2.2
+	Version: 2.2.1
 */
 
 /*
@@ -83,6 +83,8 @@ function wdw_conversion() {
 	update_option( 'wdw_options', $wdw_prefs );
 }
 register_activation_hook( __FILE__, 'wdw_conversion' );
+/////////*********** IN WP 3.1 register_update_hook() MUST BE ADDED!!! (to be confirmed: please, standby for any news)
+/////////*********** http://wpdevel.wordpress.com/2010/10/27/plugin-activation-hooks/
 
 
 /**
@@ -638,6 +640,8 @@ class WDW_Widget extends WP_Widget {
 			'count'=> true
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
+		$desc = (bool) $instance['desc'];
+		$count = (bool) $instance['count'];
 		?>
 			<p>
 				<label for="<?php echo $this->get_field_id('title'); ?>">
@@ -658,13 +662,13 @@ class WDW_Widget extends WP_Widget {
 				<input class="widefat" id="<?php echo $this->get_field_id('page'); ?>" name="<?php echo $this->get_field_name('page'); ?>" type="text" value="<?php echo $instance['page']; ?>" />
 			</p>
 			<p>
-				<input class="checkbox" type="checkbox" <?php if( $instance['desc'] ) { echo 'checked="checked"'; } ?> value="1" id="<?php echo $this->get_field_id( 'desc' ); ?>" name="<?php echo $this->get_field_name( 'desc' ); ?>" />
+				<input class="checkbox" type="checkbox" <?php checked( $desc ); ?> value="1" id="<?php echo $this->get_field_id( 'desc' ); ?>" name="<?php echo $this->get_field_name( 'desc' ); ?>" />
 				<label for="<?php echo $this->get_field_id( 'desc' ); ?>">
 					<?php _e('Display description?', 'wp-delicious-wishlist'); ?>
 				</label>
 			</p>
 			<p>
-				<input class="checkbox" type="checkbox" <?php if( $instance['count'] ) { echo 'checked="checked"'; } ?> value="2" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" />
+				<input class="checkbox" type="checkbox" <?php checked( $count ); ?> value="2" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" />
 				<label for="<?php echo $this->get_field_id( 'count' ); ?>">
 					<?php _e('Display the total number of items in titles?', 'wp-delicious-wishlist'); ?>
 				</label>
@@ -873,7 +877,7 @@ function wdw_options_page() { ?>
 										<?php _e('Display date', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
-										<input type="checkbox" value="1" name="wdw_options[wdw_date]" id="wdw_tags"<?php if($wdws['wdw_date']) { echo ' checked="true"'; } ?> />
+										<input type="checkbox" value="1" name="wdw_options[wdw_date]" id="wdw_tags" <?php checked( $wdws['wdw_date'] ); ?> />
 									</td>
 								</tr>
 								<tr valign="top" class="alternate">
@@ -889,7 +893,7 @@ function wdw_options_page() { ?>
 										<?php _e('Display tags...', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
-										<input type="checkbox" value="1" name="wdw_options[wdw_tags]" id="wdw_tags"<?php if($wdws['wdw_tags']) { echo ' checked="true"'; } ?> />
+										<input type="checkbox" value="1" name="wdw_options[wdw_tags]" id="wdw_tags" <?php checked( $wdws['wdw_tags'] ); ?> />
 									</td>
 								</tr>
 								<tr valign="top" class="alternate">
@@ -897,7 +901,7 @@ function wdw_options_page() { ?>
 										<?php _e('... but do not display my Wishlist tags', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
-										<input type="checkbox" value="1" name="wdw_options[wdw_remove_tags]" id="wdw_remove_tags"<?php if($wdws['wdw_remove_tags']) { echo ' checked="true"'; } ?> />
+										<input type="checkbox" value="1" name="wdw_options[wdw_remove_tags]" id="wdw_remove_tags" <?php checked( $wdws['wdw_remove_tags'] ); ?> />
 									</td>
 								</tr>
 								<tr valign="top">
@@ -913,7 +917,7 @@ function wdw_options_page() { ?>
 										<?php _e('Display Section', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
-										<input type="checkbox" value="1" name="wdw_options[wdw_section]" id="wdw_css"<?php if($wdws['wdw_section']) { echo ' checked="true"'; } ?> />
+										<input type="checkbox" value="1" name="wdw_options[wdw_section]" id="wdw_css"<?php checked( $wdws['wdw_section'] ); ?> />
 									</td>
 								</tr>
 								<tr valign="top">
@@ -929,7 +933,7 @@ function wdw_options_page() { ?>
 										<?php _e('Use plugin\'s CSS', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
-										<input type="checkbox" value="1" name="wdw_options[wdw_css]" id="wdw_css"<?php if($wdws['wdw_css']) { echo ' checked="true"'; } ?> />
+										<input type="checkbox" value="1" name="wdw_options[wdw_css]" id="wdw_css"<?php checked( $wdws['wdw_css'] ); ?> />
 									</td>
 								</tr>
 								<tr valign="top">
@@ -937,7 +941,7 @@ function wdw_options_page() { ?>
 										<?php _e('Link to the author', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
-										<input type="checkbox" value="1" name="wdw_options[wdw_backlink]" id="wdw_backlink"<?php if($wdws['wdw_backlink']) { echo ' checked="true"'; } ?> />
+										<input type="checkbox" value="1" name="wdw_options[wdw_backlink]" id="wdw_backlink"<?php checked( $wdws['wdw_backlink'] ); ?> />
 									</td>
 								</tr>
 							</table>
