@@ -41,6 +41,9 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 
 = 2.2.1 =
 
+* NEW: Now the user can set a symbol before each tag and a separator between two tags
+* Some minor change in the options page
+* Better coding of some lines
 * Minor change: use of the checked() function to declare checked a checkbox
 
 = 2.2 =
