@@ -227,6 +227,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 	$wdw_pre_section  = $wdws['wdw_pre_section'];
 	$wdw_pre_tag      = $wdws['wdw_pre_tag'];
 	$wdw_tag_sep      = $wdws['wdw_tag_sep'];
+	$wdw_sort_tag     = $wdws['wdw_sort_tag'];
 
 	// check if fields' values are blank
 	if (
@@ -367,6 +368,9 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 										// Let's remove them from the tags to display
 										$mytags = array_diff($mytags, $tags_to_remove);
 									}
+									if ( $wdw_sort_tag ) {
+										sort( $mytags );
+									}
 									// Take the domain to use it as the base url
 									$myurl = $tag['attribs']['']['domain'];
 									// Make sure that the new variable $all_tags be empty
@@ -457,7 +461,6 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 							}
 
 							if($wdw_tags) {
-								// $tags = ''; $tags = array();
 								$tags = (array) $wdw_item->get_item_tags('', 'category');
 								if($tags) {
 									$mytags = '';
@@ -468,6 +471,9 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 									if($wdw_remove_tags) {
 										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_medium);
 										$mytags = array_diff($mytags, $tags_to_remove);
+									}
+									if ( $wdw_sort_tag ) {
+										sort( $mytags );
 									}
 									$myurl = $tag['attribs']['']['domain'];
 									$all_tags = '';
@@ -550,7 +556,6 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 							}
 
 							if($wdw_tags) {
-								// $tags = ''; $tags = array();
 								$tags = (array) $wdw_item->get_item_tags('', 'category');
 								if($tags) {
 									$mytags = '';
@@ -561,6 +566,9 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 									if($wdw_remove_tags) {
 										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_low);
 										$mytags = array_diff($mytags, $tags_to_remove);
+									}
+									if ( $wdw_sort_tag ) {
+										sort( $mytags );
 									}
 									$myurl = $tag['attribs']['']['domain'];
 									$all_tags = '';
@@ -977,13 +985,21 @@ function wdw_options_page() { ?>
 								</tr>
 								<tr valign="top" class="alternate">
 									<th scope="row">
+										<?php _e('Sort Tags in alphabetical order', 'wp-delicious-wishlist'); ?>
+									</th>
+									<td>
+										<input type="checkbox" value="1" name="wdw_options[wdw_sort_tag]" id="wdw_css"<?php checked( $wdws['wdw_sort_tag'] ); ?> />
+									</td>
+								</tr>
+								<tr valign="top">
+									<th scope="row">
 										<?php _e('Display Section', 'wp-delicious-wishlist'); ?>
 									</th>
 									<td>
 										<input type="checkbox" value="1" name="wdw_options[wdw_section]" id="wdw_css"<?php checked( $wdws['wdw_section'] ); ?> />
 									</td>
 								</tr>
-								<tr valign="top">
+								<tr valign="top" class="alternate">
 									<th scope="row">
 										<?php _e('Text before section', 'wp-delicious-wishlist'); ?>
 									</th>
@@ -991,7 +1007,7 @@ function wdw_options_page() { ?>
 										<input type="text" name="wdw_options[wdw_pre_section]" value="<?php echo strip_tags( $wdws['wdw_pre_section'] ); ?>" />
 									</td>
 								</tr>
-								<tr valign="top" class="alternate">
+								<tr valign="top">
 									<th scope="row">
 										<?php _e('Use plugin\'s CSS', 'wp-delicious-wishlist'); ?>
 									</th>
@@ -999,7 +1015,7 @@ function wdw_options_page() { ?>
 										<input type="checkbox" value="1" name="wdw_options[wdw_css]" id="wdw_css"<?php checked( $wdws['wdw_css'] ); ?> />
 									</td>
 								</tr>
-								<tr valign="top">
+								<tr valign="top" class="alternate">
 									<th scope="row">
 										<?php _e('Link to the author', 'wp-delicious-wishlist'); ?>
 									</th>

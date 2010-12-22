@@ -41,6 +41,7 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 
 = 2.2.1 =
 
+* NEW: Now the user can sort tags in alphabetical order
 * NEW: Now the user can set a symbol before each tag and a separator between two tags
 * Some minor change in the options page
 * Better coding of some lines

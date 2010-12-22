@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Delicious Wishlist for WordPress 2.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-delicious-wishlist\n"
-"POT-Creation-Date: 2010-12-21 21:25+0100\n"
+"POT-Creation-Date: 2010-12-22 07:56+0100\n"
 "PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgid ""
 "\">options</a> page."
 msgstr ""
 
-#: wp-delicious-wishlist.php:159 wp-delicious-wishlist.php:714
+#: wp-delicious-wishlist.php:159 wp-delicious-wishlist.php:722
 msgid "Delicious Wishlist for WordPress Options"
 msgstr ""
 
@@ -33,189 +33,189 @@ msgstr ""
 msgid "Dlcs Wishlist"
 msgstr ""
 
-#: wp-delicious-wishlist.php:242
+#: wp-delicious-wishlist.php:243
 #, php-format
 msgid ""
 "You have not properly configured the plugin. Please, setup it in the "
 "%1$splugin panel%2$s, filling in all the required fields."
 msgstr ""
 
-#: wp-delicious-wishlist.php:275
+#: wp-delicious-wishlist.php:276
 #, php-format
 msgid "There was a problem fetching your first feed. The problem is:%s"
 msgstr ""
 
-#: wp-delicious-wishlist.php:296 wp-delicious-wishlist.php:421
-#: wp-delicious-wishlist.php:514
+#: wp-delicious-wishlist.php:297 wp-delicious-wishlist.php:425
+#: wp-delicious-wishlist.php:520
 #, php-format
 msgid " <span class=\"wdw-qty\">(%s item)</span>"
 msgid_plural " <span class=\"wdw-qty\">(%s items)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wp-delicious-wishlist.php:301
+#: wp-delicious-wishlist.php:302
 msgid "I need"
 msgstr ""
 
-#: wp-delicious-wishlist.php:307 wp-delicious-wishlist.php:431
-#: wp-delicious-wishlist.php:524
+#: wp-delicious-wishlist.php:308 wp-delicious-wishlist.php:435
+#: wp-delicious-wishlist.php:530
 msgid "Nothing in this moment."
 msgstr ""
 
-#: wp-delicious-wishlist.php:320 wp-delicious-wishlist.php:442
-#: wp-delicious-wishlist.php:535
+#: wp-delicious-wishlist.php:321 wp-delicious-wishlist.php:446
+#: wp-delicious-wishlist.php:541
 msgid "Continue"
 msgstr ""
 
-#: wp-delicious-wishlist.php:321 wp-delicious-wishlist.php:443
-#: wp-delicious-wishlist.php:536
+#: wp-delicious-wishlist.php:322 wp-delicious-wishlist.php:447
+#: wp-delicious-wishlist.php:542
 #, php-format
 msgid "Continue reading &laquo;%s&raquo;"
 msgstr ""
 
-#: wp-delicious-wishlist.php:332 wp-delicious-wishlist.php:451
-#: wp-delicious-wishlist.php:544
+#: wp-delicious-wishlist.php:333 wp-delicious-wishlist.php:455
+#: wp-delicious-wishlist.php:550
 msgid "%m/%d/%Y"
 msgstr ""
 
-#: wp-delicious-wishlist.php:340 wp-delicious-wishlist.php:455
-#: wp-delicious-wishlist.php:548
+#: wp-delicious-wishlist.php:341 wp-delicious-wishlist.php:459
+#: wp-delicious-wishlist.php:554
 #, php-format
 msgid "See the bookmark &laquo;%s&raquo; on Delicious"
 msgstr ""
 
-#: wp-delicious-wishlist.php:377 wp-delicious-wishlist.php:476
-#: wp-delicious-wishlist.php:569
+#: wp-delicious-wishlist.php:381 wp-delicious-wishlist.php:482
+#: wp-delicious-wishlist.php:577
 #, php-format
 msgid "See all my bookmarks tagged &laquo;%s&raquo;"
 msgstr ""
 
-#: wp-delicious-wishlist.php:409
+#: wp-delicious-wishlist.php:413
 #, php-format
 msgid "There was a problem fetching your second feed. The problem is:%s"
 msgstr ""
 
-#: wp-delicious-wishlist.php:426
+#: wp-delicious-wishlist.php:430
 msgid "I'd like"
 msgstr ""
 
-#: wp-delicious-wishlist.php:502
+#: wp-delicious-wishlist.php:508
 #, php-format
 msgid "There was a problem fetching your third feed. The problem is:%s"
 msgstr ""
 
-#: wp-delicious-wishlist.php:519
+#: wp-delicious-wishlist.php:525
 msgid "I like"
 msgstr ""
 
-#: wp-delicious-wishlist.php:591
+#: wp-delicious-wishlist.php:599
 #, php-format
 msgid "Check out %1$smy complete list%2$s."
 msgstr ""
 
-#: wp-delicious-wishlist.php:597
+#: wp-delicious-wishlist.php:605
 msgid "Created using"
 msgstr ""
 
 #. #-#-#-#-#  wp-delicious-wishlist.pot (Delicious Wishlist for WordPress 2.2.1)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: wp-delicious-wishlist.php:597
+#: wp-delicious-wishlist.php:605
 msgid "Delicious Wishlist for WordPress"
 msgstr ""
 
-#: wp-delicious-wishlist.php:626
+#: wp-delicious-wishlist.php:634
 msgid "Your personal wishlist proudly powered by Delicious"
 msgstr ""
 
-#: wp-delicious-wishlist.php:628
+#: wp-delicious-wishlist.php:636
 msgid "Delicious Wishlist Widget"
 msgstr ""
 
-#: wp-delicious-wishlist.php:658
+#: wp-delicious-wishlist.php:666
 msgid "My Wishlist"
 msgstr ""
 
-#: wp-delicious-wishlist.php:670
+#: wp-delicious-wishlist.php:678
 msgid "Title:"
 msgstr ""
 
-#: wp-delicious-wishlist.php:676
+#: wp-delicious-wishlist.php:684
 msgid "Max number of items per section:"
 msgstr ""
 
-#: wp-delicious-wishlist.php:682
+#: wp-delicious-wishlist.php:690
 msgid "Insert the title of your Wishlist page:"
 msgstr ""
 
-#: wp-delicious-wishlist.php:689
+#: wp-delicious-wishlist.php:697
 msgid "Display description?"
 msgstr ""
 
-#: wp-delicious-wishlist.php:695
+#: wp-delicious-wishlist.php:703
 msgid "Display the total number of items in titles?"
 msgstr ""
 
-#: wp-delicious-wishlist.php:717
+#: wp-delicious-wishlist.php:725
 #, php-format
 msgid "The User Guide is %1$sbelow%2$s."
 msgstr ""
 
-#: wp-delicious-wishlist.php:725
+#: wp-delicious-wishlist.php:733
 msgid "Support me!"
 msgstr ""
 
-#: wp-delicious-wishlist.php:727
+#: wp-delicious-wishlist.php:735
 msgid ""
 "If you find this plugin useful, please help me continuing to develop it."
 msgstr ""
 
-#: wp-delicious-wishlist.php:728
+#: wp-delicious-wishlist.php:736
 msgid ""
 "The easiest way to do this is to make a donation via PayPal, a well-known "
 "and secure method to make me happy!"
 msgstr ""
 
-#: wp-delicious-wishlist.php:732
+#: wp-delicious-wishlist.php:740
 msgid "PayPal - The safer, easier way to pay online!"
 msgstr ""
 
-#: wp-delicious-wishlist.php:737
+#: wp-delicious-wishlist.php:745
 msgid "If you want, you may also visit my wishlist."
 msgstr ""
 
-#: wp-delicious-wishlist.php:744
+#: wp-delicious-wishlist.php:752
 msgid "Help & feedback"
 msgstr ""
 
-#: wp-delicious-wishlist.php:747
+#: wp-delicious-wishlist.php:755
 msgid ""
 "<strong>Need help?</strong> <a href=\"http://www.aldolat.it/support/"
 "forum/51\">Visit my forums</a> (you can write in English too)"
 msgstr ""
 
-#: wp-delicious-wishlist.php:751
+#: wp-delicious-wishlist.php:759
 msgid ""
 "<strong>Want to give a feedback?</strong> Come on <a href=\"http://www."
 "aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/"
 "\">my blog</a> and drop a comment. It will be very appreciated."
 msgstr ""
 
-#: wp-delicious-wishlist.php:757
+#: wp-delicious-wishlist.php:765
 msgid "Uninstall info"
 msgstr ""
 
-#: wp-delicious-wishlist.php:760
+#: wp-delicious-wishlist.php:768
 msgid ""
 "If you decide to uninstall this plugin, it will delete any options it "
 "created. No further user action is required. Deactivating the plugin will "
 "not erase any data."
 msgstr ""
 
-#: wp-delicious-wishlist.php:766
+#: wp-delicious-wishlist.php:774
 msgid "Credits"
 msgstr ""
 
-#: wp-delicious-wishlist.php:769
+#: wp-delicious-wishlist.php:777
 #, php-format
 msgid ""
 "My thanks go to all people who contributed in revisioning and helping me in "
@@ -223,136 +223,140 @@ msgid ""
 "this work."
 msgstr ""
 
-#: wp-delicious-wishlist.php:782
+#: wp-delicious-wishlist.php:790
 msgid "Core Settings"
 msgstr ""
 
-#: wp-delicious-wishlist.php:785
+#: wp-delicious-wishlist.php:793
 msgid "These are the main options and it's mandatory to set them up."
 msgstr ""
 
-#: wp-delicious-wishlist.php:794
+#: wp-delicious-wishlist.php:802
 msgid "Delicious Nickname [*]"
 msgstr ""
 
-#: wp-delicious-wishlist.php:802
+#: wp-delicious-wishlist.php:810
 msgid "Delicious Wishlist Tag [*]"
 msgstr ""
 
-#: wp-delicious-wishlist.php:810
+#: wp-delicious-wishlist.php:818
 msgid "Title for High Tag section"
 msgstr ""
 
-#: wp-delicious-wishlist.php:818
+#: wp-delicious-wishlist.php:826
 msgid "Delicious High Tag [*]"
 msgstr ""
 
-#: wp-delicious-wishlist.php:826
+#: wp-delicious-wishlist.php:834
 msgid "Title for Medium Tag section"
 msgstr ""
 
-#: wp-delicious-wishlist.php:834
+#: wp-delicious-wishlist.php:842
 msgid "Delicious Medium Tag [*]"
 msgstr ""
 
-#: wp-delicious-wishlist.php:842
+#: wp-delicious-wishlist.php:850
 msgid "Title for Low Tag section"
 msgstr ""
 
-#: wp-delicious-wishlist.php:850
+#: wp-delicious-wishlist.php:858
 msgid "Delicious Low Tag [*]"
 msgstr ""
 
-#: wp-delicious-wishlist.php:859 wp-delicious-wishlist.php:1012
-#: wp-delicious-wishlist.php:1057
+#: wp-delicious-wishlist.php:867 wp-delicious-wishlist.php:1028
+#: wp-delicious-wishlist.php:1073
 msgid "Save Changes"
 msgstr ""
 
-#: wp-delicious-wishlist.php:867
+#: wp-delicious-wishlist.php:875
 msgid "Optional Settings"
 msgstr ""
 
-#: wp-delicious-wishlist.php:870
+#: wp-delicious-wishlist.php:878
 msgid "These options are not mandatory: it's up to you to set them up."
 msgstr ""
 
-#: wp-delicious-wishlist.php:876
+#: wp-delicious-wishlist.php:884
 msgid "How many items (max 100)"
 msgstr ""
 
-#: wp-delicious-wishlist.php:884
+#: wp-delicious-wishlist.php:892
 msgid "Truncate description (0 = do not truncate)"
 msgstr ""
 
-#: wp-delicious-wishlist.php:892
+#: wp-delicious-wishlist.php:900
 msgid "Read More text"
 msgstr ""
 
-#: wp-delicious-wishlist.php:900
+#: wp-delicious-wishlist.php:908
 msgid "Icons style"
 msgstr ""
 
-#: wp-delicious-wishlist.php:906
+#: wp-delicious-wishlist.php:914
 msgid "Stars"
 msgstr ""
 
-#: wp-delicious-wishlist.php:909
+#: wp-delicious-wishlist.php:917
 msgid "Faces"
 msgstr ""
 
-#: wp-delicious-wishlist.php:916
+#: wp-delicious-wishlist.php:924
 msgid "Feed cache time (in seconds, min 3600)"
 msgstr ""
 
-#: wp-delicious-wishlist.php:924
+#: wp-delicious-wishlist.php:932
 msgid "Display date"
 msgstr ""
 
-#: wp-delicious-wishlist.php:932
+#: wp-delicious-wishlist.php:940
 msgid "Text before date"
 msgstr ""
 
-#: wp-delicious-wishlist.php:940
+#: wp-delicious-wishlist.php:948
 msgid "Display tags..."
 msgstr ""
 
-#: wp-delicious-wishlist.php:948
+#: wp-delicious-wishlist.php:956
 msgid "... but do not display my Wishlist tags"
 msgstr ""
 
-#: wp-delicious-wishlist.php:956
+#: wp-delicious-wishlist.php:964
 msgid "Text before tags list"
 msgstr ""
 
-#: wp-delicious-wishlist.php:964
+#: wp-delicious-wishlist.php:972
 msgid "Text before each tag"
 msgstr ""
 
-#: wp-delicious-wishlist.php:972
+#: wp-delicious-wishlist.php:980
 msgid "Tag Separator"
 msgstr ""
 
-#: wp-delicious-wishlist.php:980
-msgid "Display Section"
-msgstr ""
-
 #: wp-delicious-wishlist.php:988
-msgid "Text before section"
+msgid "Sort Tags in alphabetical order"
 msgstr ""
 
 #: wp-delicious-wishlist.php:996
-msgid "Use plugin's CSS"
+msgid "Display Section"
 msgstr ""
 
 #: wp-delicious-wishlist.php:1004
+msgid "Text before section"
+msgstr ""
+
+#: wp-delicious-wishlist.php:1012
+msgid "Use plugin's CSS"
+msgstr ""
+
+#: wp-delicious-wishlist.php:1020
 msgid "Link to the author"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1019
+#: wp-delicious-wishlist.php:1035
 msgid "Alternative feed source"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1022
+#: wp-delicious-wishlist.php:1038
 msgid ""
 "If you experience problems in fetching your feeds directly from Delicious, "
 "you can use another service that fetches your feeds for you (such as "
@@ -360,27 +364,27 @@ msgid ""
 "feed URLs, that this plugin will use instead of Delicious' feeds."
 msgstr ""
 
-#: wp-delicious-wishlist.php:1029
+#: wp-delicious-wishlist.php:1045
 msgid "Feed for High Tag section:"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1038
+#: wp-delicious-wishlist.php:1054
 msgid "Feed for Medium Tag section:"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1047
+#: wp-delicious-wishlist.php:1063
 msgid "Feed for Low Tag section:"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1067
+#: wp-delicious-wishlist.php:1083
 msgid "User Guide"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1069
+#: wp-delicious-wishlist.php:1085
 msgid "Installation"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1072
+#: wp-delicious-wishlist.php:1088
 msgid ""
 "This plugin allows you to publish in your blog a wishlist using your "
 "Delicious bookmarks. In order to make this, when you visit a web page with "
@@ -401,13 +405,13 @@ msgid ""
 "above."
 msgstr ""
 
-#: wp-delicious-wishlist.php:1074
+#: wp-delicious-wishlist.php:1090
 msgid ""
 "<strong>All required fields are marked with an asterisk [*].</strong> The "
 "values are not case sensitive."
 msgstr ""
 
-#: wp-delicious-wishlist.php:1078
+#: wp-delicious-wishlist.php:1094
 #, php-format
 msgid ""
 "When you are done filling those fields, clic on the \"Save Changes\" button, "
@@ -415,17 +419,17 @@ msgid ""
 "paste the following shortcode: %s"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1079
+#: wp-delicious-wishlist.php:1095
 msgid ""
 "You can add some text before and/or after the shortcode. Publish the page "
 "and visit it on your blog. You are done!"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1082
+#: wp-delicious-wishlist.php:1098
 msgid "Changing the style of the Wishlist page"
 msgstr ""
 
-#: wp-delicious-wishlist.php:1085
+#: wp-delicious-wishlist.php:1101
 msgid ""
 "The page is stylized using the css file included in the plugin directory. If "
 "you want to restyle the page, you can put a css file in the root directory "
