@@ -363,7 +363,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 									// If the user doesn't want to display the base wishlist tags, let's remove them
 									if($wdw_remove_tags) {
 										// Fill an array with the base Wishlist tags
-										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_high, $wdw_tag_medium, $wdw_tag_low);
+										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_high);
 										// Let's remove them from the tags to display
 										$mytags = array_diff($mytags, $tags_to_remove);
 									}
@@ -466,7 +466,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 										$mytags[] = $tag['data'];
 									}
 									if($wdw_remove_tags) {
-										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_high, $wdw_tag_medium, $wdw_tag_low);
+										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_medium);
 										$mytags = array_diff($mytags, $tags_to_remove);
 									}
 									$myurl = $tag['attribs']['']['domain'];
@@ -559,7 +559,7 @@ function wp_delicious_wishlist( $widget_maxitems = '', $widget_description = fal
 										$mytags[] = $tag['data'];
 									}
 									if($wdw_remove_tags) {
-										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_high, $wdw_tag_medium, $wdw_tag_low);
+										$tags_to_remove = array($wdw_tag_wishlist, $wdw_tag_low);
 										$mytags = array_diff($mytags, $tags_to_remove);
 									}
 									$myurl = $tag['attribs']['']['domain'];
