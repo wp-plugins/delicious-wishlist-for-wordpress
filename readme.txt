@@ -1,10 +1,10 @@
-=== WP Delicious Wishlist ===
-Contributors: Aldo Latino
-Donate link: http://www.aldolat.it/info/
+=== Delicious Wishlist for WordPress ===
+Contributors: aldolat
+Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 Tags: delicious, wishlist, bookmarks
 Requires at least: 2.8
-Tested up to: 2.8.4
-Stable tag: 0.1
+Tested up to: 3.1.2
+Stable tag: 2.3
 
 Adds a Wishlist page to your WordPress blog using your Delicious Bookmarks.
 
@@ -16,7 +16,7 @@ This plugin allows you to publish in your blog a wishlist using your Delicious b
 
 This section describes how to install the plugin and get it working.
 
-1. Upload  the `wp-delicious-wishlist` directory to the `/wp-content/plugins/` directory
+1. Upload  the `delicious-wishlist-for-wordpress` directory to the `/wp-content/plugins/` directory
 1. Activate the plugin through the Plugins menu in WordPress
 1. Fill in all the fields in the options page of the plugin
 1. Create a new page
@@ -34,12 +34,104 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 == Screenshots ==
 
 1. The settings panel of the plugin
-2. The rendered wishlist page
+2. The settings for the widget
+3. The rendered wishlist page
 
 == Changelog ==
 
+= 2.3 =
+
+* The code has been totally reviewed
+* NEW: Now the user can select the HTML element for titles
+* NEW: Now the user can sort tags in alphabetical order
+* NEW: Now the user can set a symbol before each tag and a separator between two tags
+* Some minor change in the options page
+
+= 2.2 =
+
+* NEW: Added the count for total items in every title of the widget
+* Other minor changes
+
+= 2.1.1 =
+
+* FIX: Changed ids into classes, to avoid duplicated ids when viewing the main wishlist page while the wishlist widget is active
+* Changed "Check out my complete wishlist" into "Check out my complete list": the plugin may be used not only for 'wishlist' purposes
+
+= 2.1 =
+* NEW: Now the user can display or not the date, the tags or the "section" (i.e. the two main Delicious tags)
+* NEW: Now in the widget the user can put a link to the Wishlist page
+* NEW: Added the Section for main Delicious tags which links to the original Delicious tags
+* Better formatting for some messages
+
+= 2.0 =
+* NEW: Added the widget
+* NEW: Added control if the core options have been setup by the user, otherwise print the admin notice in the backend
+* NEW: Added possibility to define the maximum lenght of tags descriptions
+* NEW: Added link to the original bookmark on Delicious
+* Other minor improvements
+
+= 1.0 =
+* NEW: Now you can avoid the plugin's CSS and use your own styles from your theme CSS
+* Compatibility with WordPress 3.0
+
+= 0.6 =
+* NEW: the plugin can display the tags of a bookmark
+* Other minor changes
+
+= 0.5 =
+* FIX: Setting a cache expiry time now works correctly
+* NEW: Now you can specify an alternative feed source to retrieve bookmarks (such as FeedBurner or Yahoo! Pipes or any other source)
+* NEW: Uninstall function. If the plugin is uninstalled, it deletes any option it created in the database, with no necessary action by user
+* Cache time increased to 1 hour
+* Now the plugin displays the error in case the feed is unreachable
+* Removed duplicated ids in the options panel
+
+= 0.4 =
+* Now the admin page style reflects the WordPress style
+* NEW: Added cache expiry time option
+* Plugin options are now into a single options item in the database and the conversion is automatic if the plugin detects the old set of options
+* FIX: accented letters in dates
+
+= 0.3.5 =
+* Removed unused variable
+* Removed redundant conditions
+* Better formatting of warning
+* Added CSS style for warning
+* i18n: added name of day of week
+* l10n: updated Italian translation
+* Cleaning up of code
+* Added GPL License text
+
+= 0.3.4 =
+* Fix: call to a wrong variable
+
+= 0.3.3 =
+* Added Safe Mode in case the feed is unreachable
+
+= 0.3.2 =
+* Transition to GPLv3
+
+= 0.3.1 =
+* Compatibility with WordPress 2.9
+* Added style for abbr
+
+= 0.3 =
+* Equalized the plugin name
+
+= 0.2 =
+* Changed the plugin directory name to match the SVN name.
+
 = 0.1 =
 * First release of the plugin.
+
+== Upgrade Notice ==
+
+= 0.6 =
+Upgrade is suggested to display the tags of bookmarks.
+
+= 0.5 =
+Upgrade is recommended. This version correctly handles the cache and also you can specify alternative sources for your feed.
+
 
 == Credits ==
 
