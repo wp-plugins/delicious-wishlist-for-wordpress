@@ -3,8 +3,8 @@ Contributors: aldolat
 Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 Tags: delicious, wishlist, bookmarks
 Requires at least: 2.8
-Tested up to: 3.0.1
-Stable tag: 2.2
+Tested up to: 3.1.2
+Stable tag: 2.3
 
 Adds a Wishlist page to your WordPress blog using your Delicious Bookmarks.
 
@@ -39,13 +39,13 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 
 == Changelog ==
 
-= 2.2.1 =
+= 2.3 =
 
+* The code has been totally reviewed
+* NEW: Now the user can select the HTML element for titles
 * NEW: Now the user can sort tags in alphabetical order
 * NEW: Now the user can set a symbol before each tag and a separator between two tags
 * Some minor change in the options page
-* Better coding of some lines
-* Minor change: use of the checked() function to declare checked a checkbox
 
 = 2.2 =
 

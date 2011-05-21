@@ -1,9 +1,9 @@
 /*
-	WordPress Plugin: Delicious Wishlist for WordPress 2.2.1
+	WordPress Plugin: Delicious Wishlist for WordPress 2.3
 
 	Stylesheet file wdw.css
 
-	Copyright (C) 2009, 2010  Aldo Latino  (email : aldolat@gmail.com)
+	Copyright (C) 2009, 2011  Aldo Latino  (email : aldolat@gmail.com)
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 
 */
 
-h3.wishlist-title-high, h3.wishlist-title-medium, h3.wishlist-title-low {
+.wishlist-title-high, .wishlist-title-medium, .wishlist-title-low {
 	margin-bottom: 15px;
 }
 
@@ -28,6 +28,7 @@ ul.wishlist-high-list, ul.wishlist-medium-list, ul.wishlist-low-list {
 	list-style-type: none;
 	margin-bottom: 20px;
 	margin-left: 0;
+	padding: 0;
 }
 
 ul.wishlist-high-list p, ul.wishlist-medium-list p, ul.wishlist-low-list p {
@@ -35,9 +36,11 @@ ul.wishlist-high-list p, ul.wishlist-medium-list p, ul.wishlist-low-list p {
 }
 
 p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
+/*
 	display: inline;
 	float: left;
 	margin-right: 10px;
+*/
 }
 
 p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section, .wdw-qty {
@@ -61,10 +64,6 @@ p.wishlist-description {
 	line-height: 130%;
 }
 
-.wdw_widget p.wishlist-description {
-	font-style: italic;
-}
-
 ul.wishlist-high-list li.high-stars,
 ul.wishlist-high-list li.high-faces,
 ul.wishlist-medium-list li.medium-stars,
@@ -72,9 +71,9 @@ ul.wishlist-medium-list li.medium-faces,
 ul.wishlist-low-list li.low-stars,
 ul.wishlist-low-list li.low-faces {
 	line-height: 130%;
-	margin: 0 0 15px 0;
+	margin: 0 0 15px !important;
 	overflow: hidden;
-	padding: 0 0 0 55px;
+	padding: 0 0 0 55px !important;
 	text-indent: 0; /* for Default WordPress theme */
 }
 
@@ -134,15 +133,7 @@ a.wishlist-tag {
 
 .wdw_backlink {
 	font-size: 0.8em;
-}
-
-.wdw_warning {
-	background-color: #ffbb00;
-	border: 2px solid #ff0000;
-	color: #000;
-	font-weight: bold;
-	text-align: center;
-	padding: 7px;
+	line-height: 1.6em;
 }
 
 /*
@@ -155,7 +146,7 @@ a.wishlist-tag {
 
 .widget-area ul.wishlist-high-list li, .widget-area ul.wishlist-medium-list li,
 .widget-area ul.wishlist-low-list li {
-	background: none!important;
-	padding-left: 0!important;
+	background: none !important;
+	padding-left: 0 !important;
 }
 
