@@ -25,7 +25,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-$wdw_version = '2.3';
+$wdw_version = '2.3.1';
 
 /**
  * The function performs some checks and setup some default options.
@@ -267,10 +267,10 @@ function wdw_fetch_bookmarks( $args ) {
 				$wdw_wishlist .= __( 'I need', 'wp-delicious-wishlist' ) . $qty_for_widget;
 			}
 		$wdw_wishlist .= '</' . $wdw_title_element . '>';
-		$wdw_wishlist .= '<ul class="wishlist-' . $list_class . '-list">';
+		$wdw_wishlist .= '<ul class="wishlist">';
 			// If the first (high) section is blank, then let's write "Nothing in this moment."...
 			if ( empty( $wdw_items ) ) {
-				$wdw_wishlist .= '<li class="high-' . $wdw_icons . '">' . __( 'Nothing in this moment.', 'wp-delicious-wishlist' ) . '</li>';
+				$wdw_wishlist .= '<li class="' . $list_class . '-' . $wdw_icons . '">' . __( 'Nothing in this moment.', 'wp-delicious-wishlist' ) . '</li>';
 			} else {
 				// ... else start the loop
 				foreach ( $wdw_items as $wdw_item ) :
@@ -597,7 +597,11 @@ function wp_delicious_wishlist(
 		}
 
 		if( ( in_the_loop() && $wdw_backlink ) || ( ! in_the_loop() && $widget_backlink ) ) {
-			$wdw_credits .= '<p class="wdw_backlink">' . __( 'Created using', 'wp-delicious-wishlist' ) . ' <a href="http://wordpress.org/extend/plugins/delicious-wishlist-for-wordpress/">' . __( 'Delicious Wishlist for WordPress', 'wp-delicious-wishlist') . '</a>.</p>';
+			global $wdw_version;
+			$wdw_credits .= '<p class="wdw_backlink">'
+			. __( 'Created using', 'wp-delicious-wishlist' )
+			. ' <a href="http://wordpress.org/extend/plugins/delicious-wishlist-for-wordpress/">'
+			. __( 'Delicious Wishlist for WordPress', 'wp-delicious-wishlist') . '</a> ' . $wdw_version . '.</p>';
 		}
 
 	}

@@ -1,5 +1,5 @@
 /*
-	WordPress Plugin: Delicious Wishlist for WordPress 2.3
+	WordPress Plugin: Delicious Wishlist for WordPress 2.3.1
 
 	Stylesheet file wdw.css
 
@@ -24,14 +24,14 @@
 	margin-bottom: 15px;
 }
 
-ul.wishlist-high-list, ul.wishlist-medium-list, ul.wishlist-low-list {
+ul.wishlist {
 	list-style-type: none;
 	margin-bottom: 20px;
 	margin-left: 0;
 	padding: 0;
 }
 
-ul.wishlist-high-list p, ul.wishlist-medium-list p, ul.wishlist-low-list p {
+ul.wishlist p {
 	margin-bottom: 0 !important;
 }
 
@@ -64,12 +64,7 @@ p.wishlist-description {
 	line-height: 130%;
 }
 
-ul.wishlist-high-list li.high-stars,
-ul.wishlist-high-list li.high-faces,
-ul.wishlist-medium-list li.medium-stars,
-ul.wishlist-medium-list li.medium-faces,
-ul.wishlist-low-list li.low-stars,
-ul.wishlist-low-list li.low-faces {
+ul.wishlist li {
 	line-height: 130%;
 	margin: 0 0 15px !important;
 	overflow: hidden;
@@ -77,45 +72,45 @@ ul.wishlist-low-list li.low-faces {
 	text-indent: 0; /* for Default WordPress theme */
 }
 
-ul.wishlist-high-list li.high-stars {
+ul.wishlist li.high-stars {
 	background: transparent url('images/wdw-stars-high.png') no-repeat 0 1px;
 }
 
-ul.wishlist-high-list li.high-faces {
+ul.wishlist li.high-faces {
 	background: transparent url('images/wdw-faces-high.png') no-repeat 0 2px;
 }
 
-ul.wishlist-medium-list li.medium-stars {
+ul.wishlist li.medium-stars {
 	background: transparent url('images/wdw-stars-medium.png') no-repeat 0 1px;
 }
 
-ul.wishlist-medium-list li.medium-faces {
+ul.wishlist li.medium-faces {
 	background: transparent url('images/wdw-faces-medium.png') no-repeat 0 2px;
 }
 
-ul.wishlist-low-list li.low-stars {
+ul.wishlist li.low-stars {
 	background: transparent url('images/wdw-stars-low.png') no-repeat 0 1px;
 }
 
-ul.wishlist-low-list li.low-faces {
+ul.wishlist li.low-faces {
 	background: transparent url('images/wdw-faces-low.png') no-repeat 0 2px;
 }
 
-ul.wishlist-high-list li.high-stars:before,
-ul.wishlist-high-list li.high-faces:before,
-ul.wishlist-medium-list li.medium-stars:before,
-ul.wishlist-medium-list li.medium-faces:before,
-ul.wishlist-low-list li.low-stars:before,
-ul.wishlist-low-list li.low-faces:before { /* for Default WordPress theme */
+ul.wishlist li.high-stars:before,
+ul.wishlist li.high-faces:before,
+ul.wishlist li.medium-stars:before,
+ul.wishlist li.medium-faces:before,
+ul.wishlist li.low-stars:before,
+ul.wishlist li.low-faces:before { /* for Default WordPress theme */
 	content: "";
 }
 
-ul.wishlist-high-list li.high-stars:last-child,
-ul.wishlist-high-list li.high-faces:last-child,
-ul.wishlist-medium-list  li.medium-stars:last-child,
-ul.wishlist-medium-list li.medium-faces:last-child,
-ul.wishlist-low-list  li.low-stars:last-child,
-ul.wishlist-low-list li.low-faces:last-child {
+ul.wishlist li.high-stars:last-child,
+ul.wishlist li.high-faces:last-child,
+ul.wishlist li.medium-stars:last-child,
+ul.wishlist li.medium-faces:last-child,
+ul.wishlist li.low-stars:last-child,
+ul.wishlist li.low-faces:last-child {
 	margin-bottom: 0;
 	overflow: hidden;
 }
@@ -139,13 +134,11 @@ a.wishlist-tag {
 /*
 ********* Sidebar Area ****************/
 
-.widget-area ul.wishlist-high-list, .widget-area ul.wishlist-medium-list,
-.widget-area ul.wishlist-low-list {
+.widget-area ul.wishlist {
 	margin-left: 0 !important;
 }
 
-.widget-area ul.wishlist-high-list li, .widget-area ul.wishlist-medium-list li,
-.widget-area ul.wishlist-low-list li {
+.widget-area ul.wishlist li {
 	background: none !important;
 	padding-left: 0 !important;
 }

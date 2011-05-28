@@ -1,7 +1,7 @@
 === Delicious Wishlist for WordPress ===
 Contributors: aldolat
 Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
-Tags: delicious, wishlist, bookmarks
+Tags: del.icio.us, wishlist, bookmarks
 Requires at least: 2.8
 Tested up to: 3.1.2
 Stable tag: 2.3
@@ -38,6 +38,10 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 3. The rendered wishlist page
 
 == Changelog ==
+
+= 2.3.1 =
+
+* Improved class name for ul element
 
 = 2.3 =
 
