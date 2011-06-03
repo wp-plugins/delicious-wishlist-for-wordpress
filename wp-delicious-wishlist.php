@@ -5,7 +5,7 @@
 	Plugin URI: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
-	Version: 2.3
+	Version: 2.4
 */
 
 /*
@@ -25,7 +25,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-$wdw_version = '2.3.1';
+$wdw_version = '2.4';
 
 /**
  * The function performs some checks and setup some default options.
@@ -78,7 +78,7 @@ register_activation_hook( __FILE__, 'wdw_conversion' );
  */
 
 function wdw_init() {
-	// Create the options group
+	// Create the options group into the database
 	register_setting( 'wdw-options-group', 'wdw_options', 'wdw_options_validate' );
 
 	// Check if the main options have been setup by the user, otherwise print the admin notice
@@ -90,9 +90,10 @@ function wdw_init() {
 		! $wdws['wdw_delicious_tag_medium']   ||
 		! $wdws['wdw_delicious_tag_low']
 	) {
-		add_action( 'admin_notices', create_function( '', "echo '<div class=\"error\"><p>".sprintf( __( 'Delicious Wishlist for WordPress needs some settings on its <a href="%s">options</a> page.', 'wp-delicious-wishlist' ), admin_url( 'admin.php?page=delicious-wishlist-for-wordpress/wp-delicious-wishlist.php' ) )."</p></div>';" ) );
+		add_action( 'admin_notices', create_function( '', "echo '<div class=\"error\"><p>".sprintf( __( 'Delicious Wishlist for WordPress needs some settings on its <a href="%s">options</a> page.', 'wp-delicious-wishlist' ), admin_url( 'admin.php?page=wdw_options_menu' ) )."</p></div>';" ) );
 	}
 }
+
 add_action( 'admin_init', 'wdw_init' );
 
 
@@ -133,18 +134,6 @@ function wdw_options_validate( $input ) {
 
 	return $input;
 }
-
-
-/**
- * Add the options page
- *
- * @since 0.1
- */
-
-function wdw_menu() {
-	add_menu_page( __( 'Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist' ), __( 'Dlcs Wishlist', 'wp-delicious-wishlist' ), 'administrator', __FILE__, 'wdw_options_page', plugins_url( '/images/wdw_icon.png', __FILE__ ) );
-}
-add_action( 'admin_menu', 'wdw_menu' );
 
 
 /**
@@ -787,6 +776,40 @@ class WDW_Widget extends WP_Widget {
 
 
 /**
+ * Add the options page
+ *
+ * @since 0.1
+ */
+
+add_action( 'admin_menu', 'wdw_menu' );
+
+function wdw_menu() {
+	$wdw_menu_page = add_menu_page( __( 'Delicious Wishlist for WordPress Options', 'wp-delicious-wishlist' ), __( 'Dlcs Wishlist', 'wp-delicious-wishlist' ), 'administrator', 'wdw_options_menu', 'wdw_options_page', plugins_url( '/images/wdw_icon.png', __FILE__ ) );
+
+	// Add a contextual help to the options page of this plugin
+	$text  = '<p><strong>' . __( 'USER GUIDE', 'wp-delicious-wishlist' ) . '</strong></p>';
+	$text .= '<p><strong>' . __( 'Installation', 'wp-delicious-wishlist' ) . '</strong></p>';
+	$text .= '<p>' . __( 'This plugin allows you to publish in your blog a wishlist using your Delicious bookmarks. In order to make this, when you visit a web page with something you like, tag that page with two different bookmarks: <code>wishlist</code> and, if it is very important, <code>***</code> (three stars). Then, when you visit a page with something less important, you could use <code>wishlist</code> and <code>**</code> (two stars), and finally for a page with something even less important, you could use <code>wishlist</code> and <code>*</code> (one star). It\'s not mandatory to use these exact tags: you can choose your own tags, but consider that you have to bookmark a page with at least two different tags: one general to collect all your bookmarks relative to your wishlist, and another to mark that page depending on the importance of the stuff for you.', 'wp-delicious-wishlist' ) . '</p>';
+	$text .= '<p>' . __( 'When you are done with an item (you have bought it or someone gave it to you as a gift), you can edit that bookmark on Delicious and remove the star(s), leaving only the main tag (e.g., <code>wishlist</code>), so you can maintain in Delicious an archive of all desired items.', 'wp-delicious-wishlist' ) . '</p>';
+	$text .= '<p>' . __( 'To start, fill in the fields in the form above. The values are not case sensitive.', 'wp-delicious-wishlist' ) . '</p>';
+	$text .= '<p>' . __('When you are done filling those fields, clic on the "Save Changes" button, create a new page, and give it a title you want. In the body of the page, paste the following shortcode:', 'wp-delicious-wishlist' );
+	$text .= '<p>[my-delicious-wishlist]</p>';
+	$text .= '<p>' . __( 'You can add some text before and/or after the shortcode. Save the page and preview it. If you are satisfied, publish it!', 'wp-delicious-wishlist' ) . '</p>';
+	$text .= '<p><strong>' . __( 'The widget', 'wp-delicious-wishlist' ) . '</strong></p>';
+	$text .= '<p>' . __( 'Do not forget to check out the special widget in the Widget page!', 'wp-delicious-wishlist' ) . '</p>';
+	$text .= '<p><strong>' . __( 'Changing the style of the Wishlist page', 'wp-delicious-wishlist' ) . '</strong></p>';
+	$text .= '<p>' . __( 'The page is stylized using the css file included in the plugin directory. If you want to restyle the page, you can put a css file in the root directory of the theme you are using, create your styles, and name it <code>wdw.css</code>. All future versions of this plugin will load only your own css file.', 'wp-delicious-wishlist' ) . '</p>';
+	$text .= '<p><strong>' . __( 'For more information:', 'wp-delicious-wishlist' ) . '</strong></p>';
+	$text .= '<ul>';
+	$text .= '<li><a href="http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/">' . __( 'Plugin\'s Page', 'wp-delicious-wishlist' ) . '</a></li>';
+	$text .= '<li><a href="http://www.aldolat.it/support/forum/51">' . __( 'Support Forums', 'wp-delicious-wishlist' ) . '</a></li>';
+	$text .= '</ul>';
+
+	add_contextual_help( $wdw_menu_page, $text );
+}
+
+
+/**
  * Load the options page
  *
  * @since 0.1
@@ -802,7 +825,7 @@ function wdw_options_page() { ?>
 		<p>
 			<?php
 				global $wdw_version;
-				printf( __( 'The User Guide is %1$sbelow%2$s. You are running the version %3$s of this plugin.', 'wp-delicious-wishlist' ), '<a href="#user-guide">', '</a>', $wdw_version );
+				printf( __( 'The User Guide is located at the top of this page: clic on the Help button. You are running the version %s of this plugin.', 'wp-delicious-wishlist' ), $wdw_version );
 			?>
 		</p>
 
@@ -834,11 +857,13 @@ function wdw_options_page() { ?>
 					<h3 style="cursor: default;"><?php _e('Help & feedback', 'wp-delicious-wishlist'); ?></h3>
 					<div class="inside">
 						<p>
-							<?php _e('<strong>Need help?</strong> <a href="http://www.aldolat.it/support/forum/51">Visit my forums</a> (you can write in English too) or visit the <a href="http://wordpress.org/tags/delicious-wishlist-for-wordpress?forum_id=10">Official WordPress Forums</a>.', 'wp-delicious-wishlist'); ?>
+							<?php printf( __('<strong>Need help?</strong> %1$sVisit my forums%2$s (you can write in English too) or visit the %3$sOfficial WordPress Forums%2$s.', 'wp-delicious-wishlist'), '<a href="http://www.aldolat.it/support/forum/51">', '</a>', '<a href="http://wordpress.org/tags/delicious-wishlist-for-wordpress?forum_id=10">' ); ?>
 						</p>
 						<p>
-							<?php //printf( __('<strong>Want to give a feedback?</strong> Come on %1$smy blog%2$s and drop a comment. It will be very appreciated.', 'wp-delicious-wishlist'), '<a href="http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/">', '</a>' ); ?>
-							<?php _e('<strong>Want to give a feedback?</strong> Come on <a href="http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/">my blog</a> and drop a comment. It will be very appreciated.', 'wp-delicious-wishlist'); ?>
+							<?php printf( __('<strong>Want to give a feedback?</strong> Come on %smy blog%s and drop a comment. It will be very appreciated.', 'wp-delicious-wishlist'), '<a href="http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/">', '</a>' ); ?>
+						</p>
+						<p>
+							<?php printf( __('You can also <strong>rate this plugin</strong> on the %sWordPress plugins page%s.', 'wp-delicious-wishlist'), '<a href="http://wordpress.org/extend/plugins/delicious-wishlist-for-wordpress/">', '</a>' ); ?>
 						</p>
 					</div>
 				</div>
@@ -853,37 +878,6 @@ function wdw_options_page() { ?>
 					</div>
 				</div>
 				<!-- close Uninstall Info -->
-
-				<div class="postbox">
-					<h3 style="cursor: default;" id="user-guide"><?php _e('User Guide', 'wp-delicious-wishlist'); ?></h3>
-					<div class="inside">
-						<h4><?php _e('Installation', 'wp-delicious-wishlist'); ?></h4>
-
-						<p>
-							<?php _e('This plugin allows you to publish in your blog a wishlist using your Delicious bookmarks. In order to make this, when you visit a web page with something you like, tag that page with two different bookmarks: <code>wishlist</code> and, if it is very important, <code>***</code> (three stars). Then, when you visit a page with something less important, you could use <code>wishlist</code> and <code>**</code> (two stars), and finally for a page with something even less important, you could use <code>wishlist</code> and <code>*</code> (one star). It\'s not mandatory to use these exact tags: you can choose your own tags, but consider that you have to bookmark a page with at least two different tags: one general to collect all your bookmarks relative to your wishlist, and another to mark that page depending on the importance of the stuff for you.<br /><br /> When you are done with an item (you have bought it or someone gave it to you as a gift), you can edit that bookmark on Delicious and remove the star(s), leaving only the main tag (e.g., <code>wishlist</code>), so you can maintain in Delicious an archive of all desired items.<br /><br />', 'wp-delicious-wishlist'); ?>
-							<?php _e('To start, fill in the fields in the form above. The values are not case sensitive.', 'wp-delicious-wishlist'); ?>
-						</p>
-
-						<p>
-							<?php printf( __( 'When you are done filling those fields, clic on the "Save Changes" button, create a new page, and give it a title you want. In the body of the page, paste the following shortcode: %s', 'wp-delicious-wishlist'), '<br /><br />[my-delicious-wishlist]<br /><br />' ); ?>
-							<?php _e('You can add some text before and/or after the shortcode. Save the page and preview it. If you are satisfied, publish it!', 'wp-delicious-wishlist'); ?>
-						</p>
-
-						<h4><?php _e('The widget', 'wp-delicious-wishlist'); ?></h4>
-						<p>
-							<?php printf( __('Do not forget to check out the special widget in the Widget page!','wp-delicious-wishlist') ); ?>
-						</p>
-
-						<h4><?php _e('Changing the style of the Wishlist page', 'wp-delicious-wishlist'); ?></h4>
-
-						<p>
-							<?php _e('The page is stylized using the css file included in the plugin directory. If you want to restyle the page, you can put a css file in the root directory of the theme you are using, create your styles, and name it <code>wdw.css</code>. All future versions of this plugin will load only your own css file.', 'wp-delicious-wishlist'); ?>
-						</p>
-
-					</div>
-
-				</div>
-				<!-- close User Guide -->
 
 				<div class="postbox">
 					<h3 style="cursor: default;"><?php _e('Credits', 'wp-delicious-wishlist'); ?></h3>
