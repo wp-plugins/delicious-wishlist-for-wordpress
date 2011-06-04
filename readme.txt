@@ -43,6 +43,7 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 
 * Now the minimum required WordPress version is 3.0
 * Moved the User Guide to a contextual help on top of the options page
+* Added a link to the settings page in the plugins page
 * Improved the class name for ul elements
 
 = 2.3 =

@@ -98,6 +98,27 @@ add_action( 'admin_init', 'wdw_init' );
 
 
 /**
+ * Add a "Settings" link to the plugins page
+ *
+ * @since 2.4
+ */
+
+function wdw_settings_link( $links, $file ) {
+	static $this_plugin;
+
+	if( empty( $this_plugin ) )
+		$this_plugin = plugin_basename( __FILE__ );
+
+	if ( $file == $this_plugin )
+		$links[] = '<a href="' . admin_url( 'admin.php?page=wdw_options_menu' ) . '">' . __( 'Settings', 'wp-delicious-wishlist' ) . '</a>';
+
+	return $links;
+}
+
+add_filter( 'plugin_action_links', 'wdw_settings_link', 10, 2 );
+
+
+/**
  * Sanitize some options
  *
  * @since 0.4
