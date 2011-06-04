@@ -25,7 +25,7 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-$wdw_version = '2.4';
+define( 'WDW_VERSION', '2.4' );
 
 /**
  * The function performs some checks and setup some default options.
@@ -607,11 +607,10 @@ function wp_delicious_wishlist(
 		}
 
 		if( ( in_the_loop() && $wdw_backlink ) || ( ! in_the_loop() && $widget_backlink ) ) {
-			global $wdw_version;
 			$wdw_credits .= '<p class="wdw_backlink">'
 			. __( 'Created using', 'wp-delicious-wishlist' )
 			. ' <a href="http://wordpress.org/extend/plugins/delicious-wishlist-for-wordpress/">'
-			. __( 'Delicious Wishlist for WordPress', 'wp-delicious-wishlist') . '</a> ' . $wdw_version . '.</p>';
+			. __( 'Delicious Wishlist for WordPress', 'wp-delicious-wishlist') . '</a> ' . WDW_VERSION . '.</p>';
 		}
 
 	}
@@ -845,8 +844,7 @@ function wdw_options_page() { ?>
 
 		<p>
 			<?php
-				global $wdw_version;
-				printf( __( 'The User Guide is located at the top of this page: clic on the Help button. You are running the version %s of this plugin.', 'wp-delicious-wishlist' ), $wdw_version );
+				printf( __( 'The User Guide is located at the top of this page: clic on the Help button. You are running the version %s of this plugin.', 'wp-delicious-wishlist' ), WDW_VERSION );
 			?>
 		</p>
 
