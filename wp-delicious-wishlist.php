@@ -6,6 +6,7 @@
 	Author: Aldo Latino
 	Author URI: http://www.aldolat.it/
 	Version: 2.4
+	License: GPLv3 or later
 */
 
 /*
