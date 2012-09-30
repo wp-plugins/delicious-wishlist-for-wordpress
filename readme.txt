@@ -1,16 +1,25 @@
 === Delicious Wishlist for WordPress ===
 Contributors: aldolat
 Donate link: http://www.aldolat.it/wordpress/wordpress-plugins/delicious-wishlist-for-wordpress/
-Tags: del.icio.us, wishlist, bookmarks
+Tags: delicious, del.icio.us, wishlist, bookmarks
 Requires at least: 3.0
-Tested up to: 3.2-RC1
-Stable tag: 2.4
+Tested up to: 3.4.2
+Stable tag: 2.5
 
 Adds a Wishlist page to your WordPress blog using your Delicious Bookmarks.
 
 == Description ==
 
-This plugin allows you to publish in your blog a wishlist using your Delicious bookmarks. In order to make this, when you visit a web page with something you like, tag that page with two different bookmarks: `wishlist` and, if it is very important, `***` (three stars). Then, when you visit a page with something less important, you could use `wishlist` and `**` (two stars), and finally for a page with something even less important, you could use `wishlist` and `*` (one star). It's not mandatory to use these exact tags: you can choose your own tags, but consider that you have to bookmark a page with at least two different tags: one general to collect all your bookmarks relative to your wishlist, and another to mark that page depending on the importance of the stuff for you. When you are done with an item (you have bought it or someone gave it to you as a gift), you can edit that bookmark on Delicious and remove the star(s), leaving only the main tag (e.g., `wishlist`), so you can maintain in Delicious an archive of all desired items.
+This plugin allows you to publish in your blog a wishlist using your Delicious bookmarks.
+
+In order to make this, when you visit a web page with something you like, tag that page with two different bookmarks: `wishlist` and, if it is very important, `***` (three stars). 
+Then, when you visit a page with something less important, you could use `wishlist` and `**` (two stars), and finally for a page with something even less important, you could use `wishlist` and `*` (one star). 
+
+It's not mandatory to use these exact tags: you can choose your own tags, but consider that you have to bookmark a page with at least two different tags: 
+one general to collect all your bookmarks relative to your wishlist, and another to mark that page depending on the importance of the stuff for you. 
+
+When you are done with an item (you have bought it or someone gave it to you as a gift), you can edit that bookmark on Delicious and remove the star(s).
+Leave only the main tag (e.g., `wishlist`), so you can maintain in Delicious an archive of all desired items.
 
 == Installation ==
 
@@ -26,10 +35,14 @@ This section describes how to install the plugin and get it working.
 
 = May I tag a page using other tags besides those who I chose to tag my wishlists? =
 
-Yes. Keep in mind that you have to choose a general tag to collect all your wishlisted bookmars on Delicious and three different tags to mark them depending on their importance for you. Also, besides them, you can add all the tags you desire.
+Yes. Keep in mind that you have to choose a general tag to collect all your wishlisted bookmars on Delicious 
+and three different tags to mark them depending on their importance for you. Also, besides them, you can add all the tags you desire.
 
 = May I change the style of the page? =
-Yes. The plugin comes with a css file that is used to stylize the page. The plugin, however, looks first in your theme directory: if it finds a file named `wdw.css`, it will use it **instead of** that one provided with the plugin. In this way, you can change the look of your wishlist page and you'll preserve it even if an update of the plugin will be released.
+Yes. The plugin comes with a css file that is used to stylize the page. 
+The plugin, however, looks first in your theme directory: if it finds a file named `wdw.css`, 
+it will use it **instead of** that one provided with the plugin. 
+In this way, you can change the look of your wishlist page and you'll preserve it even if an update of the plugin will be released.
 
 == Screenshots ==
 
@@ -38,6 +51,14 @@ Yes. The plugin comes with a css file that is used to stylize the page. The plug
 3. The rendered wishlist page
 
 == Changelog ==
+
+= 2.5 =
+
+* Added compatibility to last WordPress version.
+* Moved screenshots to /assets/ directory
+* Updated call to new contextual help WordPress API
+* Added uninstall for widget options too
+* Various bugs fixed
 
 = 2.4 =
 
@@ -142,4 +163,6 @@ Upgrade is recommended. This version correctly handles the cache and also you ca
 
 == Credits ==
 
-My thanks go to all people who contributed in revisioning and helping me in any form, and in particular to [Nicola D'Agostino](http://www.nicoladagostino.net/ "Nicola's website") and to [Barbara Arianna Ripepi](http://suzupearl.com/ "Barbara's website") for their great idea behind this work.
+My thanks go to all people who contributed in revisioning and helping me in any form, 
+and in particular to [Nicola D'Agostino](http://www.nicoladagostino.net/ "Nicola's website") 
+and to [Barbara Arianna Ripepi](http://suzupearl.com/ "Barbara's website") for their great idea behind this work.

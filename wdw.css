@@ -56,16 +56,14 @@ p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section, .wdw-qty {
 }
 
 p.wishlist-description, p.wishlist-timestamp, p.wishlist-tags, p.wishlist-section {
-	line-height: 120%;
 	margin-top: 5px;
 }
 
 p.wishlist-description {
-	line-height: 130%;
+
 }
 
 ul.wishlist li {
-	line-height: 130%;
 	margin: 0 0 15px !important;
 	overflow: hidden;
 	padding: 0 0 0 55px !important;
@@ -128,7 +126,6 @@ a.wishlist-tag {
 
 .wdw_backlink {
 	font-size: 0.8em;
-	line-height: 1.6em;
 }
 
 /*
